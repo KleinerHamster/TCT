@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/news"
+        android:icon="@drawable/news_bottom_icon_inactive"
+        android:title="@string/bottom_information_customer"/>
+    <item
+        android:id="@+id/basket"
+        android:icon="@drawable/basket_bottom_icon_inactive"
+        android:title="@string/bottom_basket_customer" />
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/account_bottom_icon_inactive"
+        android:title="@string/bottom_account_customer" />
+</menu>

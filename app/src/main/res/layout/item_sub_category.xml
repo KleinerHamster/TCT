@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <androidx.cardview.widget.CardView
+        style="@style/CardViewNews">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--фотография трубы -->
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewPhotoNews.Sub">
+
+                <ImageView
+                    android:id="@+id/photoPipeSubCategory"
+                    style="@style/ImageViewPhotoNews.Sub"
+                    android:src="@drawable/lg" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Название подкатегории-->
+            <TextView
+                android:id="@+id/subCategoryTitle"
+                style="@style/ItemTitleMainCategory"
+                android:textSize="18dp"
+                android:layout_marginBottom="10dp"
+                android:text="Трубы серии МУЛЬТИПАЙП" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

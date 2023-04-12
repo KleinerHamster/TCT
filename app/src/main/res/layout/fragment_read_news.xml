@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".customer.ReadNewsFragment">
+
+
+    <!-- шапка страницы -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/back_button_news"
+            android:id="@+id/backToListNews"/>
+
+        <TextView
+            android:text="@string/latest_news_label"
+            android:layout_marginStart="110dp"
+            style="@style/ReadNews" />
+    </LinearLayout>
+
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll">
+        <LinearLayout
+            android:id="@+id/linLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- Дата новоти-->
+            <TextView
+                android:id="@+id/dateNews"
+                style="@style/LatestNews.Read"
+                android:text="16:23 02.02.2022"/>
+
+            <!--Разделитель-->
+            <LinearLayout
+                style="@style/LinearLayoutLine"
+                android:layout_height="1dp"
+                android:background="@color/text_news_des_date_color">
+            </LinearLayout>
+
+            <!-- Заголовок новости-->
+            <TextView
+                android:id="@+id/titleNews"
+                android:textSize="24sp"
+                android:text="Заголовок новости"
+                style="@style/ReadNews" />
+
+            <!--Анотация для новости -->
+            <TextView
+                android:id="@+id/descriptionNews"
+                style="@style/LatestNews.Read"
+                android:text="Description  text  text text text text text text"/>
+
+            <!--заглавочная фотографии новости -->
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewPhotoNews">
+
+                <ImageView
+                    android:id="@+id/photoNews"
+                    android:scaleType="fitXY"
+                    style="@style/ImageViewPhotoNews"/>
+            </androidx.cardview.widget.CardView>
+
+            <!--Сама новость -->
+            <TextView
+                android:id="@+id/readNews"
+                style="@style/LatestNews.Read"
+                android:text="Description  text  text text text text text text"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

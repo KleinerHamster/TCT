@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".customer.catalog.MainCatalogFragment">
+
+    <TextView
+        style="@style/CatalogTextTitle"
+        android:textColor="@color/text_color"
+        android:text="@string/catalog_label" />
+
+    <!-- список с категориями -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_category_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        tools:listitem="@layout/item_main_category"/>
+</LinearLayout>

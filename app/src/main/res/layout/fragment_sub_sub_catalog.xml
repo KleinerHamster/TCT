@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".customer.catalog.SubSubCatalogFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--Кнопка для возвращения к подкатегориям-->
+        <ImageView
+            android:id="@+id/backToSubCategory"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/back_button_news" />
+        <!-- Наименование подкатегории -->
+        <TextView
+            android:id="@+id/subCategoryTitle"
+            style="@style/ItemTitleMainCategory"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Водоснабжение" />
+
+    </LinearLayout>
+
+    <!-- список с под-подкатегориями -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sub_sub_category_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        tools:listitem="@layout/item_sub_category"/>
+
+</LinearLayout>

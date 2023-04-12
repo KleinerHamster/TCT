@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".customer.catalog.PipeBuyInfo2Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--Кнопка для возвращения к подкатегориям-->
+        <ImageView
+            android:id="@+id/backToSubCategory"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/back_button_news" />
+        <!-- Название выбранной категории -->
+        <TextView
+            android:id="@+id/mainCategoryTitle"
+            style="@style/ItemTitleMainCategory.Title"
+            android:text="Трубы ПЭ ГОСТ 18599" />
+    </LinearLayout>
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll">
+        <LinearLayout
+            android:id="@+id/linLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Название трубы -->
+            <TextView
+                android:id="@+id/pipeFullName"
+                style="@style/ReadNews.Title" />
+
+            <!-- Описание с фото  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/descriptionPipe1"
+                    style="@style/PipeDescription"
+                    android:layout_width="165dp" />
+
+                <ImageView
+                    android:id="@+id/photoPipe1"
+                    android:src="@drawable/lg"
+                    style="@style/ImageViewPhotoNews.Sub" />
+            </LinearLayout>
+
+            <!--кнопка добаления товара в корзину-->
+            <Button
+                android:id="@+id/button_buy"
+                android:text="@string/button_buy"
+                android:theme="@style/MyButtonMain"
+                style="@style/MyButtonBuy"/>
+
+            <!-- Основные характеристики -->
+            <TextView
+                android:text="@string/main_characteristics"
+                android:textStyle="normal"
+                android:layout_marginTop="15dp"
+                style="@style/ReadNews.Title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto1"
+                    style="@style/ImageViewPhotoCha"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics1"
+                    style="@style/PipeDescriptionCha" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto2"
+                    style="@style/ImageViewPhotoCha"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics2"
+                    style="@style/PipeDescriptionCha"
+                    android:layout_marginStart="15dp" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto3"
+                    style="@style/ImageViewPhotoCha"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics3"
+                    style="@style/PipeDescriptionCha" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto4"
+                    style="@style/ImageViewPhotoCha"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics4"
+                    style="@style/PipeDescriptionCha" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                android:id="@+id/lineForC4"
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto5"
+                    style="@style/ImageViewPhotoCha"
+                    android:layout_marginStart="18dp"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics5"
+                    android:layout_marginStart="1dp"
+                    style="@style/PipeDescriptionCha"/>
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                android:id="@+id/lineForC5"
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/characteristicsPhoto6"
+                    style="@style/ImageViewPhotoCha"
+                    android:layout_marginStart="18dp"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics6"
+                    android:layout_marginStart="1dp"
+                    style="@style/PipeDescriptionCha" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto7"
+                    style="@style/ImageViewPhotoCha"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics7"
+                    style="@style/PipeDescriptionCha" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                android:id="@+id/lineForC7"
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/characteristicsPhoto8"
+                    style="@style/ImageViewPhotoCha"
+                    android:src="@drawable/lg" />
+                <TextView
+                    android:id="@+id/characteristics8"
+                    style="@style/PipeDescriptionCha" />
+            </LinearLayout>
+            <!--Разделитель-->
+            <LinearLayout
+                android:id="@+id/lineForC8"
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <!-- Конструкции разных труб-->
+            <TextView
+                android:text="@string/design"
+                android:textStyle="normal"
+                android:layout_marginTop="10dp"
+                style="@style/ReadNews.Title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="vertical">
+
+                <!--кнопки для просмотра конструкций труб-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/design1"
+                        style="@style/MyButtonWatchDesign"
+                        android:text="МУЛЬТИКЛИН ЭКО RC"/>
+
+                    <Button
+                        android:id="@+id/design2"
+                        android:layout_marginStart="45dp"
+                        style="@style/MyButtonWatchDesign.NotSelected"
+                        android:text="МУЛЬТИКЛИН ЭКО RC"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/design3"
+                        style="@style/MyButtonWatchDesign.NotSelected"
+                        android:text="МУЛЬТИКЛИН ЭКО RC"/>
+
+                    <Button
+                        android:id="@+id/design4"
+                        android:layout_marginStart="45dp"
+                        style="@style/MyButtonWatchDesign.NotSelected"
+                        android:text="МУЛЬТИКЛИН ЭКО RC"/>
+                </LinearLayout>
+                <!-- описание трубы -->
+                <TextView
+                    android:id="@+id/descriptionAboutDesign"
+                    style="@style/PipeDescription"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"/>
+
+                <!-- фото послойно трубы -->
+                <ImageView
+                    android:id="@+id/photoPipe2"
+                    style="@style/ImageViewPhotoNews.Sub"
+                    android:src="@drawable/lg" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/descriptionDesign1"
+                        style="@style/PipeDescription"
+                        android:layout_width="165dp"/>
+
+                    <TextView
+                        android:id="@+id/descriptionDesign2"
+                        style="@style/PipeDescription"
+                        android:layout_width="165dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/descriptionDesign3"
+                        style="@style/PipeDescription"
+                        android:layout_width="165dp"/>
+
+                    <TextView
+                        android:id="@+id/descriptionDesign4"
+                        style="@style/PipeDescription"
+                        android:layout_width="165dp"/>
+                </LinearLayout>
+                <!-- фото крупным планом - наружный слой -->
+                <ImageView
+                    android:id="@+id/photoPipe3"
+                    android:layout_width="250dp"
+                    android:layout_height="100dp"
+                    style="@style/ImageViewPhotoNews.Sub"
+                    android:src="@drawable/lg" />
+            </LinearLayout>
+
+            <!-- Описание преимущества -->
+            <TextView
+                android:text="@string/advantages"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                style="@style/ReadNews.Title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/advantages1Photo"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/advantages1"
+                            android:layout_width="175dp"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/advantages2Photo"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/advantages2"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:layout_width="170dp"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/advantages3Photo"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/advantages3"
+                            android:layout_width="175dp"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/advantages4Photo"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/advantages4"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:layout_width="170dp"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/advantages5Photo"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/advantages5"
+                            android:layout_width="175dp"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/advantages6Photo"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/advantages6"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:layout_width="170dp"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Описание области применения -->
+            <TextView
+                android:text="@string/about_areas_of_use"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                style="@style/ReadNews.Title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/areaOfUsePhoto1"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/areaOfUse1"
+                            android:layout_width="175dp"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/areaOfUsePhoto2"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/areaOfUse2"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:layout_width="170dp"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/areaOfUsePhoto3"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/areaOfUse3"
+                            android:layout_width="175dp"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/areaOfUsePhoto4"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/areaOfUse4"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:layout_width="170dp"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/areaOfUsePhoto5"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/areaOfUse5"
+                            android:layout_width="175dp"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/areaOfUsePhoto6"
+                            style="@style/ImageViewPhotoInfo"
+                            android:src="@drawable/lg" />
+                        <TextView
+                            android:id="@+id/areaOfUse6"
+                            style="@style/PipeDescription.AreaOfUse"
+                            android:layout_width="170dp"
+                            android:text="В бухтах 100, 200 м" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <androidx.cardview.widget.CardView
+        style="@style/CardViewNews">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <!--заглавочная фотографии новости -->
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewPhotoNews"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/photoNews"
+                style="@style/ImageViewPhotoNews"
+                android:layout_height="250dp"
+                android:src="@drawable/lg" />
+        </androidx.cardview.widget.CardView>
+
+            <!--Заголовок новости -->
+            <TextView
+                android:id="@+id/titleNews"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title - my dreams's name"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <!--Анотация для новости -->
+            <TextView
+                android:id="@+id/descriptionNews"
+                android:layout_marginTop="5dp"
+                style="@style/LatestNews"
+                android:layout_marginEnd="5dp"
+                android:text="Description  text  text text text text text text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
+
+            <!--Анотация для новости -->
+            <TextView
+                android:id="@+id/dateNews"
+                style="@style/LatestNews"
+                android:text="02.02.2022"/>
+
+            <!--кнопка для перехода к чтению новости-->
+            <Button
+                android:id="@+id/button_read_news"
+                style="@style/MyButtonMain.News"
+                android:theme="@style/MyButtonMain"
+                android:text="@string/button_news_read"
+                android:layout_marginStart="110dp"/>
+        </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
