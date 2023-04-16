@@ -1,4 +1,4 @@
-package com.example.tct.customer
+package com.example.tct.customer.news
 
 import android.content.ContentValues
 import android.content.Intent

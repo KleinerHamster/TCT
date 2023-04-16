@@ -1,4 +1,4 @@
-package com.example.tct.customer
+package com.example.tct.customer.news
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.tct.R
+import com.example.tct.customer.news.InformationCompanyFragment
+import com.example.tct.customer.news.LatestNewsFragment
+import com.example.tct.customer.news.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 

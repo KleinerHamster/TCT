@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tct.R
+import com.example.tct.customer.catalog.BasketCustomerFragment
+import com.example.tct.customer.news.InformationCustomerFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainFragmentCustomer: Fragment() {

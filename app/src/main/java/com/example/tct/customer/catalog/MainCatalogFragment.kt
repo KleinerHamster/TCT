@@ -6,16 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
-import com.example.tct.customer.AdapterNews
-import com.example.tct.customer.ReadNewsFragment
 import com.example.tct.model.MainCategory
-import com.example.tct.model.News
 import com.google.firebase.firestore.*
-import java.text.SimpleDateFormat
 
 class MainCatalogFragment : Fragment() {
     private lateinit var viewOfLayout: View

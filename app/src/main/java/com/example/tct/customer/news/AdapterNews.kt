@@ -1,4 +1,4 @@
-package com.example.tct.customer
+package com.example.tct.customer.news
 
 import android.os.Build
 import android.view.LayoutInflater
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tct.R
 import com.example.tct.model.News
-import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,7 +28,7 @@ class AdapterNews(private val newsList: ArrayList<News>): RecyclerView.Adapter<A
         mListener=listener
     }
     //метод создания новой ячейки
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterNews.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         //создаем inflate с костомной разметкой
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_lats_news, parent, false)
@@ -40,7 +39,7 @@ class AdapterNews(private val newsList: ArrayList<News>): RecyclerView.Adapter<A
 
     //метод создания новой ячейки
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onBindViewHolder(holder: AdapterNews.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         //получаем по номеру позиции данные
         val news: News = newsList[position]
 
