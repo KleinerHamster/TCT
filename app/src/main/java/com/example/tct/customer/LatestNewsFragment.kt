@@ -49,7 +49,7 @@ class LatestNewsFragment: Fragment() {
                 val title = newsArrayList[position].Title.toString()
                 val about = newsArrayList[position].About.toString()
                 val theNews = newsArrayList[position].TheNews.toString()
-                val simpleDateFormat = SimpleDateFormat("HH:mm    dd.MM.yyyy")
+                val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy    HH:mm")
                 val dateNews = simpleDateFormat.format(newsArrayList[position].DateNews).toString()
                 val photo = newsArrayList[position].Photo.toString()
                 loadFragment(ReadNewsFragment.newInstance(title, about, theNews, dateNews, photo))

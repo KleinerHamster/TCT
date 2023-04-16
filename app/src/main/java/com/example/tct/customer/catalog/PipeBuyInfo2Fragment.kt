@@ -11,10 +11,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.tct.R
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.squareup.picasso.Picasso
 
 private const val ARG_PARAM1 = "mainCategory"
 private const val ARG_PARAM2 = "docMain"
@@ -139,12 +139,9 @@ class PipeBuyInfo2Fragment : Fragment() {
                     pipeFullName.text = document.getString("FullTitle")
                     //основная информация о товаре
                     descriptionPipe1.text = document.getString("MainInfo1")
-                    //загружаем изображение трубы через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("MainPhoto")).fit()
-                        .placeholder(R.drawable.lg)
-                        .error(R.drawable.lg)
-                        .into(photoPipe1)
+                    //загружаем изображение трубы через библиотеку Glide
+                    Glide.with(viewOfLayout).load(document.getString("MainPhoto"))
+                        .fitCenter().placeholder(R.drawable.lg).into(photoPipe1)
 
                     //характеристики товара
                     characteristics1.text = document.getString("Characteristics1")
@@ -164,42 +161,42 @@ class PipeBuyInfo2Fragment : Fragment() {
                     else{
                         characteristics7.text = document.getString("Characteristics7")
                         characteristics8.text = document.getString("Characteristics8")
-                        Picasso.get()
-                            .load(document.getString("Characteristics7Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Characteristics7Photo")).fitCenter()
                             .into(characteristicsPhoto7)
-                        Picasso.get()
-                            .load(document.getString("Characteristics8Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Characteristics8Photo")).fitCenter()
                             .into(characteristicsPhoto8)
                     }
-                    //загружаем изображение характеристик трубы через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("Characteristics1Photo")).fit()
+                    //загружаем изображение характеристик трубы через библиотеку Glide
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics1Photo")).fitCenter()
                         .into(characteristicsPhoto1)
-                    Picasso.get()
-                        .load(document.getString("Characteristics2Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics2Photo")).fitCenter()
                         .into(characteristicsPhoto2)
-                    Picasso.get()
-                        .load(document.getString("Characteristics3Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics3Photo")).fitCenter()
                         .into(characteristicsPhoto3)
-                    Picasso.get()
-                        .load(document.getString("Characteristics4Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics4Photo")).fitCenter()
                         .into(characteristicsPhoto4)
-                    Picasso.get()
-                        .load(document.getString("Characteristics5Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics5Photo")).fitCenter()
                         .into(characteristicsPhoto5)
-                    Picasso.get()
-                        .load(document.getString("Characteristics6Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics6Photo")).fitCenter()
                         .into(characteristicsPhoto6)
 
                     //устанавливаем текст преимуществ
                     advantages1.text = document.getString("Advantages1")
                     advantages2.text = document.getString("Advantages2")
-                    //загружаем изображения преимушеств через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("Advantages1Photo")).fit()
+                    //загружаем изображения преимушеств через библиотеку Glide
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages1Photo")).centerCrop()
                         .into(advantages1Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages2Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages2Photo")).centerCrop()
                         .into(advantages2Photo)
                     if(document.getString("Advantages3").equals("нет")){
                         advantages3.visibility = View.GONE
@@ -219,9 +216,9 @@ class PipeBuyInfo2Fragment : Fragment() {
                         advantages4Photo.visibility = View.GONE
                         advantages5Photo.visibility = View.GONE
                         advantages6Photo.visibility = View.GONE
-                        //загружаем изображения преимушеств через библиотеку Picasso
-                        Picasso.get()
-                            .load(document.getString("Advantages3Photo")).fit()
+                        //загружаем изображения преимушеств через библиотеку Glide
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Advantages3Photo")).centerCrop()
                             .into(advantages3Photo)
                     }
                     else {
@@ -229,18 +226,18 @@ class PipeBuyInfo2Fragment : Fragment() {
                         advantages4.text = document.getString("Advantages4")
                         advantages5.text = document.getString("Advantages5")
                         advantages6.text = document.getString("Advantages6")
-                        //загружаем изображения преимушеств через библиотеку Picasso
-                        Picasso.get()
-                            .load(document.getString("Advantages3Photo")).fit()
+                        //загружаем изображения преимушеств через библиотеку Glide
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Advantages3Photo")).centerCrop()
                             .into(advantages3Photo)
-                        Picasso.get()
-                            .load(document.getString("Advantages4Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Advantages4Photo")).centerCrop()
                             .into(advantages4Photo)
-                        Picasso.get()
-                            .load(document.getString("Advantages5Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Advantages5Photo")).centerCrop()
                             .into(advantages5Photo)
-                        Picasso.get()
-                            .load(document.getString("Advantages6Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Advantages6Photo")).centerCrop()
                             .into(advantages6Photo)
                     }
 
@@ -248,15 +245,12 @@ class PipeBuyInfo2Fragment : Fragment() {
                     areaOfUse1.text = document.getString("Area1")
                     areaOfUse2.text = document.getString("Area2")
                     areaOfUse3.text = document.getString("Area3")
-                    Picasso.get()
-                        .load(document.getString("Area1Photo")).fit()
-                        .into(areaOfUsePhoto1)
-                    Picasso.get()
-                        .load(document.getString("Area2Photo")).fit()
-                        .into(areaOfUsePhoto2)
-                    Picasso.get()
-                        .load(document.getString("Area3Photo")).fit()
-                        .into(areaOfUsePhoto3)
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Area1Photo")).centerCrop().into(areaOfUsePhoto1)
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Area2Photo")).centerCrop().into(areaOfUsePhoto2)
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Area3Photo")).centerCrop().into(areaOfUsePhoto3)
                     if(document.getString("Area4").equals("нет")){
                         areaOfUse4.visibility = View.GONE
                         areaOfUse5.visibility = View.GONE
@@ -271,8 +265,8 @@ class PipeBuyInfo2Fragment : Fragment() {
                         areaOfUse6.visibility = View.GONE
                         areaOfUsePhoto5.visibility = View.GONE
                         areaOfUsePhoto6.visibility = View.GONE
-                        Picasso.get()
-                            .load(document.getString("Area4Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area4Photo")).centerCrop()
                             .into(areaOfUsePhoto4)
                     }
                     else if(document.getString("Area6").equals("нет")){
@@ -280,29 +274,21 @@ class PipeBuyInfo2Fragment : Fragment() {
                         areaOfUsePhoto6.visibility = View.GONE
                         areaOfUse4.text = document.getString("Area4")
                         areaOfUse5.text = document.getString("Area5")
-                        Picasso.get()
-                            .load(document.getString("Area4Photo")).fit()
-                            .into(areaOfUsePhoto4)
-                        Picasso.get()
-                            .load(document.getString("Area5Photo")).fit()
-                            .into(areaOfUsePhoto5)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area4Photo")).centerCrop().into(areaOfUsePhoto4)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area5Photo")).centerCrop().into(areaOfUsePhoto5)
                     }
                     else{
                         areaOfUse4.text = document.getString("Area4")
                         areaOfUse5.text = document.getString("Area5")
                         areaOfUse6.text = document.getString("Area6")
-                        Picasso.get()
-                            .load(document.getString("Area4Photo")).fit()
-                            .into(areaOfUsePhoto4)
-                        Picasso.get()
-                            .load(document.getString("Area5Photo")).fit()
-                            .into(areaOfUsePhoto5)
-                        Picasso.get()
-                            .load(document.getString("Area4Photo")).fit()
-                            .into(areaOfUsePhoto4)
-                        Picasso.get()
-                            .load(document.getString("Area6Photo")).fit()
-                            .into(areaOfUsePhoto6)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area4Photo")).centerCrop().into(areaOfUsePhoto4)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area5Photo")).centerCrop().into(areaOfUsePhoto5)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area6Photo")).centerCrop().into(areaOfUsePhoto6)
                     }
 
                     //по умолчанию показ первой конструкции
@@ -312,11 +298,11 @@ class PipeBuyInfo2Fragment : Fragment() {
                     descriptionDesign3.text=document.getString("Design1Des3")
                     descriptionDesign4.text=document.getString("Design1Des4")
                     descriptionAboutDesign.text=document.getString("Design1About")
-                    Picasso.get()
-                        .load(document.getString("Design1Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Design1Photo")).fitCenter()
                         .into(photoPipe2)
-                    Picasso.get()
-                        .load(document.getString("Design1Photo1")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Design1Photo1")).fitCenter()
                         .into(photoPipe3)
 
                     //проверяем кол-во видов конструкций у трубы
@@ -356,16 +342,16 @@ class PipeBuyInfo2Fragment : Fragment() {
                         design4.setTextColor(getResources().getColor(R.color.text_news_des_date_color))
 
                         //загружаем фото и описание
-                        Picasso.get()
-                            .load(document.getString("Design1Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design1Photo")).fitCenter()
                             .into(photoPipe2)
                         descriptionDesign1.text=document.getString("Design1Des1")
                         descriptionDesign2.text=document.getString("Design1Des2")
                         descriptionDesign3.text=document.getString("Design1Des3")
                         descriptionDesign4.text=document.getString("Design1Des4")
                         descriptionAboutDesign.text=document.getString("Design1About")
-                        Picasso.get()
-                            .load(document.getString("Design1Photo1")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design1Photo1")).fitCenter()
                             .into(photoPipe3)
                     }
 
@@ -384,16 +370,16 @@ class PipeBuyInfo2Fragment : Fragment() {
                         design4.setTextColor(getResources().getColor(R.color.text_news_des_date_color))
 
                         //загружаем фото и описание
-                        Picasso.get()
-                            .load(document.getString("Design2Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design2Photo")).fitCenter()
                             .into(photoPipe2)
                         descriptionDesign1.text=document.getString("Design2Des1")
                         descriptionDesign2.text=document.getString("Design2Des2")
                         descriptionDesign3.text=document.getString("Design2Des3")
                         descriptionDesign4.text=document.getString("Design2Des4")
                         descriptionAboutDesign.text=document.getString("Design2About")
-                        Picasso.get()
-                            .load(document.getString("Design2Photo1")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design2Photo1")).fitCenter()
                             .into(photoPipe3)
                     }
 
@@ -412,17 +398,15 @@ class PipeBuyInfo2Fragment : Fragment() {
                         design4.setTextColor(getResources().getColor(R.color.text_news_des_date_color))
 
                         //загружаем фото и описание
-                        Picasso.get()
-                            .load(document.getString("Design3Photo")).fit()
-                            .into(photoPipe2)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design3Photo")).fitCenter().into(photoPipe2)
                         descriptionDesign1.text=document.getString("Design3Des1")
                         descriptionDesign2.text=document.getString("Design3Des2")
                         descriptionDesign3.text=document.getString("Design3Des3")
                         descriptionDesign4.text=document.getString("Design3Des4")
                         descriptionAboutDesign.text=document.getString("Design3About")
-                        Picasso.get()
-                            .load(document.getString("Design3Photo1")).fit()
-                            .into(photoPipe3)
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design3Photo1")).fitCenter().into(photoPipe3)
                     }
 
                     //кнопка для просмотра четвертой трубы
@@ -440,16 +424,16 @@ class PipeBuyInfo2Fragment : Fragment() {
                         design2.setTextColor(getResources().getColor(R.color.text_news_des_date_color))
 
                         //загружаем фото и описание
-                        Picasso.get()
-                            .load(document.getString("Design4Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design4Photo")).fitCenter()
                             .into(photoPipe2)
                         descriptionDesign1.text=document.getString("Design4Des1")
                         descriptionDesign2.text=document.getString("Design4Des2")
                         descriptionDesign3.text=document.getString("Design4Des3")
                         descriptionDesign4.text=document.getString("Design4Des4")
                         descriptionAboutDesign.text=document.getString("Design4About")
-                        Picasso.get()
-                            .load(document.getString("Design4Photo1")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Design4Photo1")).fitCenter()
                             .into(photoPipe3)
                     }
 

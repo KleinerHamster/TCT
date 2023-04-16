@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.tct.R
 import com.google.firebase.firestore.*
-import com.squareup.picasso.Picasso
 
 private const val ARG_PARAM1 = "mainCategory"
 private const val ARG_PARAM2 = "docMain"
@@ -135,8 +135,8 @@ class PipeBuyInfoFragment : Fragment() {
                     }
                     else{
                         characteristics2.text = document.getString("Characteristics2")
-                        Picasso.get()
-                            .load(document.getString("Characteristics2Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Characteristics2Photo")).fitCenter()
                             .into(characteristicsPhoto2)
                     }
                     characteristics3.text = document.getString("Characteristics3")
@@ -147,9 +147,9 @@ class PipeBuyInfoFragment : Fragment() {
 
                     //текст области применения
                     areaOfUse1.text = document.getString("Area1")
-                    //загружаем изображение области применения через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("Area1Photo")).fit()
+                    //загружаем изображение области применения через библиотеку Glide
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Area1Photo")).centerCrop()
                         .into(areaOfUsePhoto1)
                     if (document.getString("Area2").equals("нет")){
                         areaOfUse2.visibility = View.GONE
@@ -163,15 +163,15 @@ class PipeBuyInfoFragment : Fragment() {
                         areaOfUse2.text = document.getString("Area2")
                         areaOfUse3.text = document.getString("Area3")
                         areaOfUse4.text = document.getString("Area4")
-                        //загружаем изображение области применения через библиотеку Picasso
-                        Picasso.get()
-                            .load(document.getString("Area2Photo")).fit()
+                        //загружаем изображение области применения через библиотеку Glide
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area2Photo")).centerCrop()
                             .into(areaOfUsePhoto2)
-                        Picasso.get()
-                            .load(document.getString("Area3Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area3Photo")).centerCrop()
                             .into(areaOfUsePhoto3)
-                        Picasso.get()
-                            .load(document.getString("Area4Photo")).fit()
+                        Glide.with(viewOfLayout)
+                            .load(document.getString("Area4Photo")).centerCrop()
                             .into(areaOfUsePhoto4)
                     }
 
@@ -184,64 +184,65 @@ class PipeBuyInfoFragment : Fragment() {
                     advantages6.text = document.getString("Advantages6")
                     advantages7.text = document.getString("Advantages7")
 
-                    //загружаем изображение трубы через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("MainPhoto")).fit()
+                    //загружаем изображение трубы через библиотеку Glide
+                    Glide
+                        .with(viewOfLayout)
+                        .load(document.getString("MainPhoto")).fitCenter()
                         .placeholder(R.drawable.lg)
-                        .error(R.drawable.lg)
                         .into(photoPipe1)
 
-                    //загружаем изображение для доставки через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("AboutDelivery1Photo")).fit()
+                    //загружаем изображение для доставки через библиотеку Glide
+                    Glide
+                        .with(viewOfLayout)
+                        .load(document.getString("AboutDelivery1Photo")).fitCenter()
                         .into(deliveryPhoto1)
-                    Picasso.get()
-                        .load(document.getString("AboutDelivery2Photo")).fit()
+                    Glide
+                        .with(viewOfLayout)
+                        .load(document.getString("AboutDelivery2Photo")).fitCenter()
                         .into(deliveryPhoto2)
 
-                    //загружаем изображение характеристик трубы через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("Characteristics1Photo")).fit()
+                    //загружаем изображение характеристик трубы через библиотеку Glide
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics1Photo")).fitCenter()
                         .into(characteristicsPhoto1)
-                    Picasso.get()
-                        .load(document.getString("Characteristics3Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics3Photo")).fitCenter()
                         .into(characteristicsPhoto3)
-                    Picasso.get()
-                        .load(document.getString("Characteristics4Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics4Photo")).fitCenter()
                         .into(characteristicsPhoto4)
-                    Picasso.get()
-                        .load(document.getString("Characteristics5Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics5Photo")).fitCenter()
                         .into(characteristicsPhoto5)
-                    Picasso.get()
-                        .load(document.getString("Characteristics6Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics6Photo")).fitCenter()
                         .into(characteristicsPhoto6)
-                    Picasso.get()
-                        .load(document.getString("Characteristics7Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Characteristics7Photo")).fitCenter()
                         .into(characteristicsPhoto7)
 
-                    //загружаем изображения преимушеств через библиотеку Picasso
-                    Picasso.get()
-                        .load(document.getString("Advantages1Photo")).fit()
+                    //загружаем изображения преимушеств через библиотеку Glide
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages1Photo")).fitCenter()
                         .into(advantages1Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages2Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages2Photo")).fitCenter()
                         .into(advantages2Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages3Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages3Photo")).fitCenter()
                         .into(advantages3Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages4Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages4Photo")).fitCenter()
                         .into(advantages4Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages5Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages5Photo")).fitCenter()
                         .into(advantages5Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages6Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages6Photo")).fitCenter()
                         .into(advantages6Photo)
-                    Picasso.get()
-                        .load(document.getString("Advantages7Photo")).fit()
+                    Glide.with(viewOfLayout)
+                        .load(document.getString("Advantages7Photo")).fitCenter()
                         .into(advantages7Photo)
-
                 } else {
                     Log.d(ContentValues.TAG, "No such document")
                 }
