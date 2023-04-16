@@ -147,7 +147,7 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto1"
-                    style="@style/ImageViewPhotoCha"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics1"
@@ -169,13 +169,11 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto2"
-                    style="@style/ImageViewPhotoCha"
-                    android:layout_marginStart="3dp"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics2"
-                    style="@style/PipeDescriptionCha"
-                    android:layout_marginStart="15dp" />
+                    style="@style/PipeDescriptionCha"/>
             </LinearLayout>
             <!--Разделитель-->
             <LinearLayout
@@ -193,7 +191,7 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto3"
-                    style="@style/ImageViewPhotoCha"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics3"
@@ -215,13 +213,11 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto4"
-                    style="@style/ImageViewPhotoCha"
-                    android:layout_marginStart="18dp"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics4"
-                    style="@style/PipeDescriptionCha"
-                    android:layout_marginStart="1dp" />
+                    style="@style/PipeDescriptionCha" />
             </LinearLayout>
             <!--Разделитель-->
             <LinearLayout
@@ -240,13 +236,11 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto5"
-                    style="@style/ImageViewPhotoCha"
-                    android:layout_marginStart="18dp"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics5"
-                    style="@style/PipeDescriptionCha"
-                    android:layout_marginStart="1dp"/>
+                    style="@style/PipeDescriptionCha"/>
             </LinearLayout>
             <!--Разделитель-->
             <LinearLayout
@@ -265,13 +259,11 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto6"
-                    style="@style/ImageViewPhotoCha"
-                    android:layout_marginStart="18dp"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics6"
-                    style="@style/PipeDescriptionCha"
-                    android:layout_marginStart="1dp" />
+                    style="@style/PipeDescriptionCha" />
             </LinearLayout>
             <!--Разделитель-->
             <LinearLayout
@@ -289,13 +281,11 @@
 
                 <ImageView
                     android:id="@+id/characteristicsPhoto7"
-                    style="@style/ImageViewPhotoCha"
-                    android:layout_marginStart="18dp"
+                    style="@style/ImageViewPhotoCha.Small"
                     android:src="@drawable/lg" />
                 <TextView
                     android:id="@+id/characteristics7"
-                    style="@style/PipeDescriptionCha"
-                    android:layout_marginStart="1dp" />
+                    style="@style/PipeDescriptionCha" />
             </LinearLayout>
             <!--Разделитель-->
             <LinearLayout
