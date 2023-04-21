@@ -193,10 +193,10 @@ class PipeBuyInfo2Fragment : Fragment() {
                     advantages2.text = document.getString("Advantages2")
                     //загружаем изображения преимушеств через библиотеку Glide
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Advantages1Photo")).centerCrop()
+                        .load(document.getString("Advantages1Photo")).fitCenter()
                         .into(advantages1Photo)
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Advantages2Photo")).centerCrop()
+                        .load(document.getString("Advantages2Photo")).fitCenter()
                         .into(advantages2Photo)
                     if(document.getString("Advantages3").equals("нет")){
                         advantages3.visibility = View.GONE
@@ -218,7 +218,7 @@ class PipeBuyInfo2Fragment : Fragment() {
                         advantages6Photo.visibility = View.GONE
                         //загружаем изображения преимушеств через библиотеку Glide
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages3Photo")).centerCrop()
+                            .load(document.getString("Advantages3Photo")).fitCenter()
                             .into(advantages3Photo)
                     }
                     else {
@@ -228,16 +228,16 @@ class PipeBuyInfo2Fragment : Fragment() {
                         advantages6.text = document.getString("Advantages6")
                         //загружаем изображения преимушеств через библиотеку Glide
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages3Photo")).centerCrop()
+                            .load(document.getString("Advantages3Photo")).fitCenter()
                             .into(advantages3Photo)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages4Photo")).centerCrop()
+                            .load(document.getString("Advantages4Photo")).fitCenter()
                             .into(advantages4Photo)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages5Photo")).centerCrop()
+                            .load(document.getString("Advantages5Photo")).fitCenter()
                             .into(advantages5Photo)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages6Photo")).centerCrop()
+                            .load(document.getString("Advantages6Photo")).fitCenter()
                             .into(advantages6Photo)
                     }
 
@@ -246,11 +246,11 @@ class PipeBuyInfo2Fragment : Fragment() {
                     areaOfUse2.text = document.getString("Area2")
                     areaOfUse3.text = document.getString("Area3")
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Area1Photo")).centerCrop().into(areaOfUsePhoto1)
+                        .load(document.getString("Area1Photo")).fitCenter().into(areaOfUsePhoto1)
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Area2Photo")).centerCrop().into(areaOfUsePhoto2)
+                        .load(document.getString("Area2Photo")).fitCenter().into(areaOfUsePhoto2)
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Area3Photo")).centerCrop().into(areaOfUsePhoto3)
+                        .load(document.getString("Area3Photo")).fitCenter().into(areaOfUsePhoto3)
                     if(document.getString("Area4").equals("нет")){
                         areaOfUse4.visibility = View.GONE
                         areaOfUse5.visibility = View.GONE
@@ -266,7 +266,7 @@ class PipeBuyInfo2Fragment : Fragment() {
                         areaOfUsePhoto5.visibility = View.GONE
                         areaOfUsePhoto6.visibility = View.GONE
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area4Photo")).centerCrop()
+                            .load(document.getString("Area4Photo")).fitCenter()
                             .into(areaOfUsePhoto4)
                     }
                     else if(document.getString("Area6").equals("нет")){
@@ -275,20 +275,20 @@ class PipeBuyInfo2Fragment : Fragment() {
                         areaOfUse4.text = document.getString("Area4")
                         areaOfUse5.text = document.getString("Area5")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area4Photo")).centerCrop().into(areaOfUsePhoto4)
+                            .load(document.getString("Area4Photo")).fitCenter().into(areaOfUsePhoto4)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area5Photo")).centerCrop().into(areaOfUsePhoto5)
+                            .load(document.getString("Area5Photo")).fitCenter().into(areaOfUsePhoto5)
                     }
                     else{
                         areaOfUse4.text = document.getString("Area4")
                         areaOfUse5.text = document.getString("Area5")
                         areaOfUse6.text = document.getString("Area6")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area4Photo")).centerCrop().into(areaOfUsePhoto4)
+                            .load(document.getString("Area4Photo")).fitCenter().into(areaOfUsePhoto4)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area5Photo")).centerCrop().into(areaOfUsePhoto5)
+                            .load(document.getString("Area5Photo")).fitCenter().into(areaOfUsePhoto5)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area6Photo")).centerCrop().into(areaOfUsePhoto6)
+                            .load(document.getString("Area6Photo")).fitCenter().into(areaOfUsePhoto6)
                     }
 
                     //по умолчанию показ первой конструкции

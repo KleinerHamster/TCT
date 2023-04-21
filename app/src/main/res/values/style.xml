@@ -296,6 +296,7 @@
     </style>
     <style name="ImageViewPhotoCha.Small">
         <item name="android:layout_width">50dp</item>
+        <item name="android:scaleType">centerInside</item>
         <item name="android:layout_height">50dp</item>
     </style>
 
@@ -322,6 +323,16 @@
     <style name="MyButtonWatchDesign.NotSelected">
         <item name="android:textColor">@color/text_news_des_date_color</item>
         <item name="android:background">@drawable/default_outlined_button_not_selected</item>
+    </style>
+
+    <!--стиль для CardView для корзины -->
+    <style name="CardViewSubSub">
+        <item name="android:layout_width">65dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="cardCornerRadius">15dp</item>
+        <item name="android:layout_marginStart">110dp</item>
+        <item name="android:layout_marginTop">180dp</item>
+        <item name="cardBackgroundColor">@color/text_color</item>
     </style>
 </resources>
 

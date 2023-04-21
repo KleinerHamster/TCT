@@ -221,35 +221,35 @@ class PipeBuyInfo1Fragment : Fragment() {
                         advantages10.text = document.getString("Advantages10")
                         advantages11.text = document.getString("Advantages11")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages10Photo")).centerCrop()
+                            .load(document.getString("Advantages10Photo")).fitCenter()
                             .into(advantages10Photo)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages11Photo")).centerCrop()
+                            .load(document.getString("Advantages11Photo")).fitCenter()
                             .into(advantages11Photo)
                     }
                     else{
                         advantages10.text = document.getString("Advantages10")
                         advantages11.text = document.getString("Advantages11")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages10Photo")).centerCrop()
+                            .load(document.getString("Advantages10Photo")).fitCenter()
                             .into(advantages10Photo)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages11Photo")).centerCrop()
+                            .load(document.getString("Advantages11Photo")).fitCenter()
                             .into(advantages11Photo)
 
                         advantages12.text = document.getString("Advantages12")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages12Photo")).centerCrop()
+                            .load(document.getString("Advantages12Photo")).fitCenter()
                             .into(advantages12Photo)
 
                         advantages13.text = document.getString("Advantages13")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages13Photo")).centerCrop()
+                            .load(document.getString("Advantages13Photo")).fitCenter()
                             .into(advantages13Photo)
 
                         advantages14.text = document.getString("Advantages14")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Advantages14Photo")).centerCrop()
+                            .load(document.getString("Advantages14Photo")).fitCenter()
                             .into(advantages14Photo)
                     }
 
@@ -272,16 +272,16 @@ class PipeBuyInfo1Fragment : Fragment() {
                         areaOfUse4.text = document.getString("Area4")
                         areaOfUse5.text = document.getString("Area5")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area2Photo")).centerCrop()
+                            .load(document.getString("Area2Photo")).fitCenter()
                             .into(areaOfUsePhoto2)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area3Photo")).centerCrop()
+                            .load(document.getString("Area3Photo")).fitCenter()
                             .into(areaOfUsePhoto3)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area4Photo")).centerCrop()
+                            .load(document.getString("Area4Photo")).fitCenter()
                             .into(areaOfUsePhoto4)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area5Photo")).centerCrop()
+                            .load(document.getString("Area5Photo")).fitCenter()
                             .into(areaOfUsePhoto5)
                     }
                     else if (document.getString("Area5").equals("нет")){
@@ -291,19 +291,19 @@ class PipeBuyInfo1Fragment : Fragment() {
                         areaOfUse3.text = document.getString("Area3")
                         areaOfUse4.text = document.getString("Area4")
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area2Photo")).centerCrop()
+                            .load(document.getString("Area2Photo")).fitCenter()
                             .into(areaOfUsePhoto2)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area3Photo")).centerCrop()
+                            .load(document.getString("Area3Photo")).fitCenter()
                             .into(areaOfUsePhoto3)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area4Photo")).centerCrop()
+                            .load(document.getString("Area4Photo")).fitCenter()
                             .into(areaOfUsePhoto4)
                     }
 
                     //загружаем изображение области применения через библиотеку Glide
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Area1Photo")).centerCrop()
+                        .load(document.getString("Area1Photo")).fitCenter()
                         .into(areaOfUsePhoto1)
 
 

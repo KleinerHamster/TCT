@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tct.R
@@ -19,15 +20,16 @@ class AdapterSubSubCategory(private val subSubCategoryList: ArrayList<SubSubCate
     public class MyViewHolder(itemView: View, listener: AdapterSubSubCategory.onItemClickListener): RecyclerView.ViewHolder(itemView){
         val title: TextView = itemView.findViewById(R.id.subCategoryTitle)
         val photo: ImageView = itemView.findViewById(R.id.photoPipeSubCategory)
+        val buySubSub: CardView = itemView.findViewById(R.id.button_buy_sub_sub)
         init{
-            photo.setOnClickListener{listener.onItemClick(adapterPosition)}
+            buySubSub.setOnClickListener {listener.buyItemClick(adapterPosition)}
         }
     }
 
     //метод создания новой ячейки
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         //создаем inflate с костомной разметкой
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_sub_category, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_sub_sub_category, parent, false)
 
         //возвращаем созданую ячейку
         return MyViewHolder(itemView, mListener)
@@ -59,7 +61,7 @@ class AdapterSubSubCategory(private val subSubCategoryList: ArrayList<SubSubCate
 
     interface onItemClickListener{
 
-        fun onItemClick(position: Int)
+        fun buyItemClick(position: Int)
     }
 
     fun setOnClickListener(listener: onItemClickListener){

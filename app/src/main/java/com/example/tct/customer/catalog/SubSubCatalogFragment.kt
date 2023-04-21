@@ -71,11 +71,10 @@ class SubSubCatalogFragment : Fragment() {
         recyclerView.adapter = myAdapter
         //устанавливаем действие нажатия на кнопку в списке новостей
         myAdapter.setOnClickListener(object: AdapterSubSubCategory.onItemClickListener{
-            override fun onItemClick(position: Int) {
-                //взависимости от категории трубы отображаем фрагмент
+            override fun buyItemClick(position: Int) {
                 Toast.makeText(
                     requireActivity(),
-                    subSubCategoryArrayList[position].Title.toString(),
+                    "купить "+subSubCategoryArrayList[position].Title.toString(),
                     Toast.LENGTH_LONG
                 ).show()
             }

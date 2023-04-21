@@ -149,7 +149,7 @@ class PipeBuyInfoFragment : Fragment() {
                     areaOfUse1.text = document.getString("Area1")
                     //загружаем изображение области применения через библиотеку Glide
                     Glide.with(viewOfLayout)
-                        .load(document.getString("Area1Photo")).centerCrop()
+                        .load(document.getString("Area1Photo")).fitCenter()
                         .into(areaOfUsePhoto1)
                     if (document.getString("Area2").equals("нет")){
                         areaOfUse2.visibility = View.GONE
@@ -165,13 +165,13 @@ class PipeBuyInfoFragment : Fragment() {
                         areaOfUse4.text = document.getString("Area4")
                         //загружаем изображение области применения через библиотеку Glide
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area2Photo")).centerCrop()
+                            .load(document.getString("Area2Photo")).fitCenter()
                             .into(areaOfUsePhoto2)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area3Photo")).centerCrop()
+                            .load(document.getString("Area3Photo")).fitCenter()
                             .into(areaOfUsePhoto3)
                         Glide.with(viewOfLayout)
-                            .load(document.getString("Area4Photo")).centerCrop()
+                            .load(document.getString("Area4Photo")).fitCenter()
                             .into(areaOfUsePhoto4)
                     }
 
