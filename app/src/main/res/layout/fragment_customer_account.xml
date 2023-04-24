@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".customer.AccountCustomerFragment"
+    tools:context=".customer.account.AccountCustomerFragment"
     android:background="@color/background">
 
     <FrameLayout

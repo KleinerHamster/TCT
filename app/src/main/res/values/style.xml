@@ -27,7 +27,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
     </style>
-
+    <style name="LabelAnswer.LabelAnswer2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
     <!--стиль для Outlined Box-->
     <style name="MyTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/text_color</item>
@@ -35,6 +38,7 @@
         <item name="layout_constraintHorizontal_bias">0.316</item>
         <item name="endIconTint">@color/text_color</item>
         <item name="boxStrokeWidth">2dp</item>
+        <item name="android:textColorHint">@color/text_color</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="boxCornerRadiusTopStart">16dp</item>

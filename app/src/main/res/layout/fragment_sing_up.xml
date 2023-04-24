@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".customer.account.SingUpFragment">
+
+
+            <!--логотип компании-->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@drawable/lg" />
+
+            <TextView
+                style="@style/LabelAnswer.LabelAnswer2"
+                android:layout_marginTop="10dp"
+                android:text="@string/sing_up_label" />
+
+            <!--ввод ФИО-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_input"
+                android:layout_marginTop="20dp"
+                android:hint="@string/name_hint_sing_up"
+                style="@style/MyTextField">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_edit"
+                    android:autofillHints="password"
+                    android:textAlignment="viewStart"
+                    style="@style/MyEditText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Ввод почты-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input"
+                android:layout_marginTop="20dp"
+                android:hint="@string/sing_in_hint_email"
+                style="@style/MyTextField">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_edit"
+                    android:autofillHints="emailAddress"
+                    android:textAlignment="viewStart"
+                    style="@style/MyEditText.Email"  />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--ввод пароля-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_input"
+                android:layout_marginTop="20dp"
+                android:hint="@string/sing_in_hint_password"
+                style="@style/MyTextField.Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_edit"
+                    android:autofillHints="password"
+                    android:textAlignment="viewStart"
+                    style="@style/MyEditText.Password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--ввод повтора пароля-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_repeat_input"
+                android:layout_marginTop="20dp"
+                android:hint="@string/password_repeat_hint_sing_up"
+                style="@style/MyTextField.Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_repeat_edit"
+                    android:autofillHints="password"
+                    android:textAlignment="viewStart"
+                    style="@style/MyEditText.Password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- выпадающий список -->
+            <Spinner
+                android:id="@+id/spinner_branch"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="300dp"
+                android:layout_height="?attr/dropdownListPreferredItemHeight"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_spinner_branch"
+                android:dropDownWidth="300dp"
+                android:paddingRight="14dp"
+                android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+                android:popupElevation="3dp"
+                android:layout_gravity="center"/>
+    <!--кнопка входа-->
+    <Button
+        android:id="@+id/button_sing_in"
+        android:text="@string/btn_sin_up_"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:theme="@style/MyButtonMain"
+        style="@style/MyButtonMain"/>
+</LinearLayout>

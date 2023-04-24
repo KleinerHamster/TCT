@@ -1,13 +1,15 @@
-package com.example.tct.customer
+package com.example.tct.customer.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tct.R
+import com.example.tct.customer.news.NewsCustomerFragment
 import com.google.android.material.textfield.TextInputEditText
 import java.util.regex.Pattern
 
@@ -20,6 +22,12 @@ class SingInCustomerFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewOfLayout = inflater.inflate(R.layout.fragment_sing_in_up, container, false)
+
+        //переход к регистрации
+        val goToSingUp= viewOfLayout.findViewById<TextView>(R.id.goToSingUp)
+        goToSingUp.setOnClickListener {
+            loadFragment(SingUpFragment())
+        }
 
         val singIn= viewOfLayout.findViewById<Button>(R.id.button_sing_in) as Button
         singIn.setOnClickListener{
@@ -40,8 +48,10 @@ class SingInCustomerFragment: Fragment() {
                 Toast.makeText(requireActivity(), " УРА!", Toast.LENGTH_LONG).show()
             }
         }
+
         return viewOfLayout
     }
+
 
     //метод проферки почты
     fun isEmailValid(email: String): Boolean {
@@ -53,5 +63,12 @@ class SingInCustomerFragment: Fragment() {
                     + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
                     + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
         ).matcher(email).matches()
+    }
+
+    //метод для загрузки фрагмента
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.fl_wrapper_account,fragment)
+        transaction?.commit()
     }
 }

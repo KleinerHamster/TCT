@@ -6,7 +6,6 @@
     <string name="email_textview">Почта</string>
     <string name="password_textview">Пароль</string>
     <string name="button_sing_in">Войти</string>
-    <string name="about_enter">Для дальнейшего входа или регистрации введите почту и пароль</string>
     <string name="answer_label">Забыли пароль?</string>
     <string name="reset_pas"><u>Восстановить</u></string>
     <string name="about_label">О компании</string>
@@ -23,7 +22,12 @@
     <string name="main_characteristics">Характеристики</string>
     <string name="button_buy">Купить</string>
     <string name="design">Конструкция</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="sing_in_label">Авторизация</string>
+    <string name="sing_up_label">Регистрация</string>
+    <string name="sing_in_hint_email">Введите почту</string>
+    <string name="sing_in_hint_password">Введите пароль</string>
+    <string name="name_hint_sing_up">Как к Вам обращаться?</string>
+    <string name="password_repeat_hint_sing_up">Повторите пароль</string>
+    <string name="go_to_sin_up_label"><u>Зарегистрироваться?</u></string>
+    <string name="btn_sin_up_">Зарегистрироваться</string>
 </resources>
