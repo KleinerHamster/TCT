@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.tct.R
 import com.example.tct.customer.account.SingInCustomerFragment
@@ -16,6 +17,8 @@ class AccountCustomerFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewOfLayout = inflater.inflate(R.layout.fragment_customer_account, container, false)
+        val sharedPreferences = requireActivity().getSharedPreferences("user data", AppCompatActivity.MODE_PRIVATE)
+        val login = sharedPreferences.getString("LOGIN", null)
         loadFragment(SingInCustomerFragment())
         return viewOfLayout
     }

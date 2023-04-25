@@ -73,7 +73,7 @@
         android:text="@string/answer_label" />
 
     <TextView
-        android:id="@+id/go_to"
+        android:id="@+id/reset_password_label"
         style="@style/LabelAnswer.LabelAnswer1"
         android:text="@string/reset_pas" />
 </LinearLayout>

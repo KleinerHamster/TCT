@@ -9,13 +9,13 @@
     tools:context=".customer.account.SingUpFragment">
 
 
-            <!--логотип компании-->
+    <!--логотип компании-->
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="25dp"
                 app:srcCompat="@drawable/lg" />
 
             <TextView
@@ -50,6 +50,19 @@
                     android:textAlignment="viewStart"
                     style="@style/MyEditText.Email"  />
             </com.google.android.material.textfield.TextInputLayout>
+    <!--Ввод номера телефона-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_input"
+        android:layout_marginTop="20dp"
+        android:hint="@string/sing_in_hint_phone"
+        style="@style/MyTextField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_edit"
+            android:autofillHints="phone"
+            android:textAlignment="viewStart"
+            style="@style/MyEditText"  />
+    </com.google.android.material.textfield.TextInputLayout>
 
             <!--ввод пароля-->
             <com.google.android.material.textfield.TextInputLayout
@@ -94,7 +107,7 @@
                 android:layout_gravity="center"/>
     <!--кнопка входа-->
     <Button
-        android:id="@+id/button_sing_in"
+        android:id="@+id/button_sing_up"
         android:text="@string/btn_sin_up_"
         android:layout_width="300dp"
         android:layout_gravity="center"

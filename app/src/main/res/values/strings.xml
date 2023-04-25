@@ -25,9 +25,28 @@
     <string name="sing_in_label">Авторизация</string>
     <string name="sing_up_label">Регистрация</string>
     <string name="sing_in_hint_email">Введите почту</string>
+    <string name="sing_in_hint_phone">Введите номер телефона</string>
     <string name="sing_in_hint_password">Введите пароль</string>
     <string name="name_hint_sing_up">Как к Вам обращаться?</string>
     <string name="password_repeat_hint_sing_up">Повторите пароль</string>
     <string name="go_to_sin_up_label"><u>Зарегистрироваться?</u></string>
     <string name="btn_sin_up_">Зарегистрироваться</string>
+    <string name="error_msg_name">Введите имя</string>
+    <string name="error_msg_confirm_password">Введите повторный пароль</string>
+    <string name="error_msg_password_length">Длина пароля не меньше 6 символов</string>
+    <string name="error_msg_password_not">Пароли не совпали</string>
+    <string name="error_msg_email_in">Неверный формат почты</string>
+    <string name="error_msg_phone_in">Неверный формат номера телефона</string>
+    <string name="error_user_create">Такой пользователь уже существует</string>
+    <string name="msg_user_create">Успешная регистрация</string>
+    <string name="error_user_sing_in">Проверьте данные</string>
+    <string name="error_msg_email">Проверьте почту</string>
+    <string name="error_msg_phone">Проверьте пароль</string>
+    <string name="title_alert_d">Сброс пароля</string>
+    <string name="btn_close_text">Закрыть</string>
+    <string name="btn_reset_text">Отправить</string>
+    <string name="msg_reset_true">Письмо отправлено</string>
+    <string name="msg_reset_false">Проверьте почту</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
