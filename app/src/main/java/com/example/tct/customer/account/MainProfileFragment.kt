@@ -47,7 +47,11 @@ class MainProfileFragment : Fragment() {
         goToUpdate.setOnClickListener {
             loadFragment(CustomerUpdateDataFragment())
         }
-
+        //кнопка просмотра контактной информации
+        val showContacts = viewOfLayout.findViewById<TextView>(R.id.showContacts)
+        showContacts.setOnClickListener {
+            loadFragment(OfficeInformationFragment())
+        }
         val nameShow = viewOfLayout.findViewById<TextView>(R.id.nameShow)
         val phoneShow = viewOfLayout.findViewById<TextView>(R.id.phoneShow)
         val emailShow= viewOfLayout.findViewById<TextView>(R.id.emailShow)

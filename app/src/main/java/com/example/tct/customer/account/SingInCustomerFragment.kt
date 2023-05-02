@@ -33,7 +33,6 @@ import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
 class SingInCustomerFragment: Fragment() {
-
     private lateinit var viewOfLayout: View
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore

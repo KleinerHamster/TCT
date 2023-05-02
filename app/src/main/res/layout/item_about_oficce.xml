@@ -14,7 +14,7 @@
             android:orientation="vertical">
             <!--Заголовок новости -->
             <TextView
-                android:id="@+id/titleNews"
+                android:id="@+id/cityOffice"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

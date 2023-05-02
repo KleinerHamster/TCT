@@ -33,7 +33,7 @@ class AdapterMainCategory(private val mainCategoryList: ArrayList<MainCategory>)
         return mainCategoryList.size
     }
 
-    //метод создания новой ячейки
+    //метод cвязи новой ячейки и данных
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         //получаем по номеру позиции данные
         val category: MainCategory = mainCategoryList[position]

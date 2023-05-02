@@ -104,6 +104,7 @@
     </LinearLayout>
     <TextView
         android:text="@string/label_for_contacts"
+        android:id="@+id/showContacts"
         style="@style/MainTextProfileText" />
     <!--Разделитель-->
     <LinearLayout
