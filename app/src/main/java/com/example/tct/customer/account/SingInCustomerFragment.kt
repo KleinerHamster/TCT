@@ -1,6 +1,7 @@
 package com.example.tct.customer.account
 
 import android.app.AlertDialog
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.DialogInterface
@@ -8,6 +9,7 @@ import android.content.SharedPreferences
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.tct.R
 import com.example.tct.customer.news.NewsCustomerFragment
@@ -23,6 +26,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
@@ -31,6 +36,7 @@ class SingInCustomerFragment: Fragment() {
 
     private lateinit var viewOfLayout: View
     private lateinit var auth: FirebaseAuth
+    private lateinit var fStore: FirebaseFirestore
     var sharedPreferences: SharedPreferences? = null
     var editor: SharedPreferences.Editor? = null
     override fun onCreateView(
@@ -41,10 +47,11 @@ class SingInCustomerFragment: Fragment() {
 
         //иницилизация аутентификация в Firebase и sharedPreferences
         auth = Firebase.auth
+        fStore = FirebaseFirestore.getInstance()//подключению к FireStore
         sharedPreferences = requireActivity().getSharedPreferences("user data", Context.MODE_PRIVATE)
         editor = sharedPreferences!!.edit()
         //переход к регистрации
-        val goToSingUp= viewOfLayout.findViewById<TextView>(R.id.goToSingUp)
+        val goToSingUp = viewOfLayout.findViewById<TextView>(R.id.goToSingUp)
         goToSingUp.setOnClickListener {
             loadFragment(SingUpFragment())
         }
@@ -53,6 +60,7 @@ class SingInCustomerFragment: Fragment() {
         val  password_input = viewOfLayout.findViewById<TextInputLayout>(R.id.password_input)
         val email_edit = viewOfLayout.findViewById<TextInputEditText>(R.id.email_edit)
         val password_edit = viewOfLayout.findViewById<TextInputEditText>(R.id.password_edit)
+
         //иницилизация кнопки для авторизации и метод при нажатие
         val singIn= viewOfLayout.findViewById<Button>(R.id.button_sing_in) as Button
         singIn.setOnClickListener{
@@ -60,19 +68,15 @@ class SingInCustomerFragment: Fragment() {
             val email = email_edit.text.toString()
             val password = password_edit.text.toString()
 
-            val pattern = Pattern.compile("[a-z0-9.]+[@][a-z0-9]+[.][a-z]{1,3}")
-            //проверка вводимого
-            val matcher = pattern.matcher(email)
-            val match = matcher.matches()
-
-            email_input.isErrorEnabled = false
+           // email_input.isErrorEnabled = false
             password_input.isErrorEnabled = false
+            email_input.isErrorEnabled = false
             //валидация полей
             if (email == "") {
                 email_input.error = resources.getString(R.string.sing_in_hint_email)
             } else if (password == "") {
                 password_input.error = resources.getString(R.string.sing_in_hint_password)
-            } else if(!match){
+            } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 email_input.error = resources.getString(R.string.error_msg_email_in)
             } else {
                 auth.signInWithEmailAndPassword(email, password)
@@ -80,11 +84,29 @@ class SingInCustomerFragment: Fragment() {
                         if (task.isSuccessful) {
                             Log.d(TAG, "signInWithEmail:success")
                             val userId = auth.currentUser!!.uid
-                            //запись в настройки
-                            editor!!.putString("LOGIN", "true")
-                            editor!!.putString("userId", userId)
-                            editor!!.commit()
-                            loadFragment(MainProfileFragment())
+                            //подключаемся и получаем информацию из FireStore
+                            val dr: DocumentReference = fStore.collection("users").document(userId)
+                            dr.get().addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    val document = task.result
+                                    if (document.exists()) {
+                                        //запись в настройки
+                                        editor!!.putString("LOGIN", "true")
+                                        editor!!.putString("userId", userId)
+                                        editor!!.putString("email", email)
+                                        editor!!.putString("phone", document.getString("Phone"))
+                                        editor!!.putString("name", document.getString("Name"))
+                                        editor!!.putString("branch", document.getString("Branch"))
+                                        editor!!.putString("pas", password)
+                                        editor!!.commit()
+                                        loadFragment(MainProfileFragment())
+                                    } else {
+                                        Log.d(TAG, "No such document")
+                                    }
+                                } else {
+                                    Log.d(TAG, "get failed with ", task.exception)
+                                }
+                            }
                         } else {
                             //ошибка при авторизацие
                             Log.w(TAG, "signInWithEmail:failure", task.exception)
@@ -153,9 +175,6 @@ class SingInCustomerFragment: Fragment() {
         alertDialog.show()
     }
 
-    fun forgotPSW(email:String){
-
-    }
     //метод для загрузки фрагмента
     private  fun loadFragment(fragment: Fragment){
         val transaction = activity?.supportFragmentManager?.beginTransaction()

@@ -1,14 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".customer.account.MainProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- шапка страницы -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/bottom_account_customer"
+        style="@style/ReadNews" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
 
-</FrameLayout>
+    <!-- Имя поль-ля-->
+    <TextView
+        android:layout_marginTop="10dp"
+        style="@style/ProfileText"
+        android:text="@string/label_for_name"/>
+    <TextView
+        android:id="@+id/nameShow"
+        android:text="Имя пользователя"
+        style="@style/MainTextProfileText" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <!--Учетные данные поль-ля-->
+    <TextView
+        style="@style/ProfileText.Sub"
+        android:layout_marginTop="35dp"
+        android:text="@string/sub_label_for_data_user"/>
+    <!--Разделитель-->
+    <LinearLayout
+        android:layout_margin="0dp"
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        style="@style/ProfileText"
+        android:text="@string/label_for_phone"/>
+    <TextView
+        android:id="@+id/phoneShow"
+        android:text="89223784909"
+        style="@style/MainTextProfileText" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        style="@style/ProfileText"
+        android:text="@string/label_for_email"/>
+    <TextView
+        android:id="@+id/emailShow"
+        android:text="viktoria.ivashova.04@mail.ru"
+        style="@style/MainTextProfileText" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        style="@style/ProfileText"
+        android:text="@string/label_for_branch"/>
+    <TextView
+        android:id="@+id/branchShow"
+        android:text="Санкт-Петербург"
+        style="@style/MainTextProfileText" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <!--Просмотр заказов-->
+    <TextView
+        style="@style/ProfileText.Sub"
+        android:layout_marginTop="35dp"
+        android:text="@string/sub_label_for_oreder"/>
+    <!--Разделитель-->
+    <LinearLayout
+        android:layout_margin="0dp"
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        android:text="@string/label_for_oreder"
+        style="@style/MainTextProfileText" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <!--Просмотр контактной информации-->
+    <TextView
+        style="@style/ProfileText.Sub"
+        android:layout_marginTop="35dp"
+        android:text="@string/sub_label_for_contacts"/>
+    <!--Разделитель-->
+    <LinearLayout
+        android:layout_margin="0dp"
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        android:text="@string/label_for_contacts"
+        style="@style/MainTextProfileText" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <!--Управление аккаунтв-->
+    <TextView
+        style="@style/ProfileText.Sub"
+        android:layout_marginTop="35dp"
+        android:text="@string/sub_label_for_account"/>
+    <!--Разделитель-->
+    <LinearLayout
+        android:layout_margin="0dp"
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        android:id="@+id/goToUpdate"
+        android:text="@string/label_for_account_change"
+        style="@style/MainTextProfileText.Click" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <TextView
+        android:id="@+id/singOut"
+        android:text="@string/label_for_account_log_out"
+        android:textColor="@color/red_t"
+        style="@style/MainTextProfileText.Click" />
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+</LinearLayout>

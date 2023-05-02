@@ -13,4 +13,5 @@
     <color name="text_color">#262F3F</color>
     <color name="mtrl_textinput_default_box_stroke_color">#262F3F</color>
     <color name="text_news_des_date_color">#FF848484</color>
+    <color name="red_t">#a12027</color>
 </resources>

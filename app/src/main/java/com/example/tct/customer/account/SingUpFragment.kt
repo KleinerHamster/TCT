@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,6 +52,7 @@ class SingUpFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
+
         //иницилизируем подключения к БД и sharedPreferences
         mAuth = FirebaseAuth.getInstance()
         sharedPreferences = requireActivity().getSharedPreferences("user data", Context.MODE_PRIVATE)
@@ -84,11 +86,8 @@ class SingUpFragment : Fragment() {
             password_repeat_input.isErrorEnabled = false
             phone_input.isErrorEnabled = false
             //создаем патерны для проверки
-            val pattern = Pattern.compile("[a-z0-9.]+[@][a-z0-9]+[.][a-z]{1,3}")
             val patternPhone = Pattern.compile("^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$")
             //проверка вводимого
-            val matcher = pattern.matcher(email)
-            val match = matcher.matches()
             val matcherPhone= patternPhone.matcher(phone)
             val matchPhone = matcherPhone.matches()
 
@@ -115,7 +114,7 @@ class SingUpFragment : Fragment() {
             } else if (password != confirmPassword) {
                 password_input.error = resources.getString(R.string.error_msg_password_not)
                 password_repeat_input.error = resources.getString(R.string.error_msg_password_not)
-            } else if (!match) {
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 email_input.error = resources.getString(R.string.error_msg_email_in)
             } else if (!matchPhone) {
                 phone_input.error = resources.getString(R.string.error_msg_phone_in)
@@ -151,6 +150,11 @@ class SingUpFragment : Fragment() {
                             //запись в настройки
                             editor!!.putString("LOGIN", "true")
                             editor!!.putString("userId", userId)
+                            editor!!.putString("email", email)
+                            editor!!.putString("phone", phone)
+                            editor!!.putString("branch", branchSelected)
+                            editor!!.putString("name", name)
+                            editor!!.putString("pas", password)
                             editor!!.commit()
                             loadFragment(MainProfileFragment())
                         }

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".customer.account.CustomerUpdateDataFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/btnCancel"
+            style="@style/ChangeInfoText"
+            android:text="@string/btn_cancel" />
+        <TextView
+            style="@style/ChangeInfoText.Main"
+            android:layout_marginStart="55dp"
+            android:text="@string/label_account" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:src="@drawable/save_check"
+            android:id="@+id/saveUpdate"/>
+    </LinearLayout>
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+
+    <!--измение имени-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/ChangeInfoText.Main1"
+            android:text="@string/label_for_name" />
+        <EditText
+            android:id="@+id/nameChange"
+            android:layout_marginStart="5dp"
+            android:hint="@string/label_for_name"
+            style="@style/MyEditTextProfile"/>
+    </LinearLayout>
+
+    <!--измение телефона-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/ChangeInfoText.Main1"
+            android:text="@string/label_for_phone" />
+        <EditText
+            android:id="@+id/phoneChange"
+            android:hint="@string/hint_phone"
+            style="@style/MyEditTextProfile"/>
+    </LinearLayout>
+
+    <!--измение почты-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/ChangeInfoText.Main1"
+            android:text="@string/label_for_email" />
+        <EditText
+            android:id="@+id/emailChange"
+            android:layout_marginLeft="40dp"
+            android:hint="@string/hint_email"
+            style="@style/MyEditTextProfile"/>
+    </LinearLayout>
+
+    <!--измение города-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/ChangeInfoText.Main1"
+            android:text="@string/label_for_branch" />
+        <!-- выпадающий список -->
+        <Spinner
+            android:id="@+id/spinner_selected_branch"
+            style="@style/Widget.AppCompat.Spinner"
+            android:layout_marginStart="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/dropdownListPreferredItemHeight"
+            android:dropDownWidth="200dp"
+            android:paddingRight="14dp"
+            android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+            android:popupElevation="3dp"/>
+    </LinearLayout>
+
+</LinearLayout>

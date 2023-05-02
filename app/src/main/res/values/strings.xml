@@ -47,6 +47,26 @@
     <string name="btn_reset_text">Отправить</string>
     <string name="msg_reset_true">Письмо отправлено</string>
     <string name="msg_reset_false">Проверьте почту</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_for_name">Ваше имя</string>
+    <string name="sub_label_for_data_user">Учетные данные</string>
+    <string name="label_for_phone">Телефон</string>
+    <string name="label_for_email">Почта</string>
+    <string name="sub_label_for_oreder">Заказы</string>
+    <string name="label_for_oreder">История заявок</string>
+    <string name="label_for_branch">Город</string>
+    <string name="sub_label_for_contacts">Контакты</string>
+    <string name="label_for_contacts">Контактная информация</string>
+    <string name="sub_label_for_account">Аккаунт</string>
+    <string name="label_for_account_change">Изменить данные</string>
+    <string name="label_for_account_log_out">Выйти из аккаунта</string>
+    <string name="btn_cancel">Назад</string>
+    <string name="btn_done">Сохранить</string>
+    <string name="label_account">Мои данные</string>
+    <string name="label_name">Имя</string>
+    <string name="hint_phone">89116573467</string>
+    <string name="hint_email">example@gmail.com</string>
+    <string name="msg_error_change">Проверьте данные!</string>
+    <string name="msg_successful_change">Данные обновлены!</string>
+    <string name="label_address">Офис</string>
+    <string name="label_for_work_hours">Часы работы</string>
 </resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <androidx.cardview.widget.CardView
+        style="@style/CardViewNews">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--Заголовок новости -->
+            <TextView
+                android:id="@+id/titleNews"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Санкт-Петербург"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+            <LinearLayout
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+            <!-- Адресс офиса -->
+            <LinearLayout
+                style="@style/LinearLayoutLineO">
+                <TextView
+                    style="@style/ProfileText.Sub1"
+                    android:text="@string/label_address"/>
+                <TextView
+                    android:id="@+id/addressOffice"
+                    android:text="Санкт-Петербург,г.Пушкин,ул. Гусарская,д.4, литер А, офис 206"
+                    style="@style/MainTextProfileText.Office" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LinearLayoutLine.Office">
+            </LinearLayout>
+
+            <!--Контактный номер-->
+            <LinearLayout
+                style="@style/LinearLayoutLineO">
+                <TextView
+                    style="@style/ProfileText.Sub1"
+                    android:text="@string/label_for_phone"/>
+                <TextView
+                    android:id="@+id/phoneOffice"
+                    android:text="8 800 551 09 61"
+                    style="@style/MainTextProfileText.Office" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LinearLayoutLine.Office">
+            </LinearLayout>
+
+            <!--Почта-->
+            <LinearLayout
+                style="@style/LinearLayoutLineO">
+                <TextView
+                    style="@style/ProfileText.Sub1"
+                    android:text="@string/label_for_email"/>
+                <TextView
+                    android:id="@+id/emailOffice"
+                    android:text="samara@tst-ur.ru"
+                    style="@style/MainTextProfileText.Office" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LinearLayoutLine.Office">
+            </LinearLayout>
+
+            <!--График работы-->
+            <LinearLayout
+                style="@style/LinearLayoutLineO">
+                <TextView
+                    style="@style/ProfileText.Sub1"
+                    android:text="@string/label_for_work_hours"/>
+                <TextView
+                    android:id="@+id/workHours"
+                    android:text="Пн-Пт: с 09:00 до 18:00"
+                    style="@style/MainTextProfileText.Office" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

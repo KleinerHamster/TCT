@@ -19,7 +19,10 @@ class AccountCustomerFragment: Fragment() {
         viewOfLayout = inflater.inflate(R.layout.fragment_customer_account, container, false)
         val sharedPreferences = requireActivity().getSharedPreferences("user data", AppCompatActivity.MODE_PRIVATE)
         val login = sharedPreferences.getString("LOGIN", null)
-        loadFragment(SingInCustomerFragment())
+        if(login.equals("true"))
+            loadFragment(MainProfileFragment())
+        else
+            loadFragment(SingInCustomerFragment())
         return viewOfLayout
     }
 
