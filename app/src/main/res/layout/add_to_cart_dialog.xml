@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="335dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_Constraint_Layout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_Dialog"
+        android:background="@drawable/custom_bkg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Заголовок окна-->
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tittle_d"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_bkg"
+            android:textColor="@color/background"
+            android:padding="12dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/title_add_alert_d"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--   Название серии трубы     -->
+        <TextView
+            android:id="@+id/nameObPipe"
+            style="@style/ResetPasswordTextView"
+            android:text="Трубы серии МУЛЬТИКЛИН"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tittle_d" />
+
+        <!-- выпадающий список -->
+        <Spinner
+            android:id="@+id/spinner_type"
+            style="@style/Widget.AppCompat.Spinner"
+            android:layout_width="275dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="?attr/dropdownListPreferredItemHeight"
+            android:background="@drawable/bg_spinner_branch"
+            android:dropDownWidth="250dp"
+            android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+            android:popupElevation="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameObPipe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/close_btn"
+            style="@style/ResetPasswordTextView"
+            android:text="@string/btn_close_text"
+            android:layout_marginStart="150dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_type"/>
+
+        <TextView
+            style="@style/ResetPasswordTextView"
+            android:id="@+id/reset_btn"
+            android:layout_marginStart="20dp"
+            android:text="@string/button_buy"
+            app:layout_constraintStart_toEndOf="@id/close_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_type"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

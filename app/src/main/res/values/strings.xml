@@ -71,5 +71,6 @@
     <string name="label_for_work_hours">Часы работы</string>
     <string name="label_info1">Связаться с нами:</string>
     <string name="label_info2">8 800 551 09 61</string>
-    <string name="label_info3">С контактной информацией можно ознакомиться в профиле</string>
+    <string name="label_info3">С контактной информацией можно ознакомиться в профиле.</string>
+    <string name="title_add_alert_d">Добавление в корзину</string>
 </resources>

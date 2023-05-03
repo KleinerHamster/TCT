@@ -1,16 +1,16 @@
 package com.example.tct.customer.catalog
 
+import android.app.AlertDialog
 import android.content.ContentValues
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.example.tct.R
 import com.google.firebase.firestore.DocumentReference
@@ -127,6 +127,7 @@ class PipeBuyInfo2Fragment : Fragment() {
         val areaOfUsePhoto4 = viewOfLayout.findViewById<ImageView>((R.id.areaOfUsePhoto4))
         val areaOfUsePhoto5 = viewOfLayout.findViewById<ImageView>((R.id.areaOfUsePhoto5))
         val areaOfUsePhoto6 = viewOfLayout.findViewById<ImageView>((R.id.areaOfUsePhoto6))
+        val branch: ArrayList<String> = arrayListOf("Выберите тип")
 
         db = FirebaseFirestore.getInstance()//подключению к FireStore
         //подключаемся и получаем информацию из FireStore
@@ -293,6 +294,7 @@ class PipeBuyInfo2Fragment : Fragment() {
 
                     //по умолчанию показ первой конструкции
                     design1.text=document.getString("Design1")
+                    branch.add(document.getString("Design1").toString())
                     descriptionDesign1.text=document.getString("Design1Des1")
                     descriptionDesign2.text=document.getString("Design1Des2")
                     descriptionDesign3.text=document.getString("Design1Des3")
@@ -313,10 +315,13 @@ class PipeBuyInfo2Fragment : Fragment() {
                     }
                     else if(document.getString("Design3").equals("нет")){
                         design2.text=document.getString("Design2")
+                        branch.add(document.getString("Design2").toString())
                         design3.visibility = View.GONE
                         design4.visibility = View.GONE
                     }
                     else if(document.getString("Design4").equals("нет")){
+                        branch.add(document.getString("Design2").toString())
+                        branch.add(document.getString("Design3").toString())
                         design2.text=document.getString("Design2")
                         design3.text=document.getString("Design3")
                         design4.visibility = View.GONE
@@ -325,6 +330,9 @@ class PipeBuyInfo2Fragment : Fragment() {
                         design2.text=document.getString("Design2")
                         design3.text=document.getString("Design3")
                         design4.text=document.getString("Design4")
+                        branch.add(document.getString("Design2").toString())
+                        branch.add(document.getString("Design3").toString())
+                        branch.add(document.getString("Design4").toString())
                     }
 
                     //кнопка для просмотра первой трубы
@@ -448,6 +456,11 @@ class PipeBuyInfo2Fragment : Fragment() {
                 )
             }
         }
+        //кнопка для покупки товара
+        val button_buy = viewOfLayout.findViewById<TextView>(R.id.button_buy)
+        button_buy.setOnClickListener {
+            showDialog(branch)
+        }
         return viewOfLayout
     }
 
@@ -472,5 +485,43 @@ class PipeBuyInfo2Fragment : Fragment() {
         val transaction = activity?.supportFragmentManager?.beginTransaction()
         transaction?.replace(R.id.fl_wrapper_main_catalog,fragment)
         transaction?.commit()
+    }
+    //метод вызова диалогового окна для выбора типа трубы из серии
+    fun showDialog(branch: ArrayList<String>){
+        //инцилизурем созданное окно для сброса пароля
+        val dialogConstraintLayout = requireActivity().findViewById<ConstraintLayout>(R.id.dialog_Constraint_Layout)
+        val view = LayoutInflater.from(requireContext()).inflate(R.layout.add_to_cart_dialog, dialogConstraintLayout)
+        val closeBth = view.findViewById<TextView>(R.id.close_btn)
+        val resetBth = view.findViewById<TextView>(R.id.reset_btn)
+        val title = view.findViewById<TextView>(R.id.nameObPipe)
+        title.text = namePipe
+        //val email_reset_edit = view.findViewById<TextInputEditText>(R.id.email_reset_edit)
+        //инцилизируем выпадающий список
+        val spinner = view.findViewById<Spinner>(R.id.spinner_type)
+        //устанавливаем адаптер с данными и разметкой для выпадающего списка
+        var adapter = ArrayAdapter(requireContext(), R.layout.selected_item_spinner, branch)
+        adapter.setDropDownViewResource(R.layout.drop_down_item_spinner)
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                //branchSelected= branch[position]
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+        val builder = AlertDialog.Builder(requireActivity())
+        builder.setView(view)
+        val alertDialog = builder.create()
+        //кнопка закрыть окно
+        closeBth.setOnClickListener {
+            alertDialog.dismiss()
+        }
+        //кнопка для подтверждения сбора
+        resetBth.setOnClickListener {
+
+        }
+        if(alertDialog.window!=null){
+            alertDialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+        alertDialog.show()
     }
 }
