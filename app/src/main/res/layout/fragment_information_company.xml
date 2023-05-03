@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/photoInfoAboutCompany"
                 android:layout_width="match_parent"
-                android:layout_height="1150dp"
+                android:layout_height="1200dp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop" />
 
@@ -48,11 +48,28 @@
                 style="@style/InfoTextAbout"
                 android:layout_marginTop="300dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="370dp"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/InfoTextAbout"
+                    android:text="@string/label_info1"/>
+                <TextView
+                    style="@style/InfoTextAbout"
+                    android:layout_marginStart="0dp"
+                    android:text="@string/label_info2"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="395dp"
+                style="@style/InfoTextAbout"
+                android:text="@string/label_info3"/>
 
             <!-- Разметка для миссии компании -->
             <androidx.cardview.widget.CardView
                 style="@style/CardViewInfo"
-                android:layout_marginTop="400dp">
+                android:layout_marginTop="480dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -80,7 +97,7 @@
             <!--Ценности компании-->
             <TextView
                 style="@style/InfoTextAbout.Title"
-                android:layout_marginTop="665dp"
+                android:layout_marginTop="730dp"
                 android:layout_marginStart="10dp"
                 android:gravity="start"
                 android:text="@string/value_company_info" />
@@ -88,25 +105,25 @@
             <TextView
                 android:id="@+id/valueFirst"
                 style="@style/InfoTextAbout"
-                android:layout_marginTop="715dp" />
+                android:layout_marginTop="785dp" />
             <TextView
                 android:id="@+id/valueSecond"
                 style="@style/InfoTextAbout"
-                android:layout_marginTop="750dp" />
+                android:layout_marginTop="820dp" />
             <TextView
                 android:id="@+id/valueThird"
                 style="@style/InfoTextAbout"
-                android:layout_marginTop="785dp" />
+                android:layout_marginTop="855dp" />
             <TextView
                 android:id="@+id/valueForth"
                 style="@style/InfoTextAbout"
-                android:layout_marginTop="820dp" />
+                android:layout_marginTop="890dp" />
 
 
             <!-- Разметка для девиза компании -->
             <androidx.cardview.widget.CardView
                 style="@style/CardViewInfo"
-                android:layout_marginTop="895dp">
+                android:layout_marginTop="950dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

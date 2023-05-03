@@ -63,10 +63,13 @@
     <string name="btn_done">Сохранить</string>
     <string name="label_account">Мои данные</string>
     <string name="label_name">Имя</string>
-    <string name="hint_phone">89116573467</string>
+    <string name="hint_phone">8хххххххххх</string>
     <string name="hint_email">example@gmail.com</string>
     <string name="msg_error_change">Проверьте данные!</string>
     <string name="msg_successful_change">Данные обновлены!</string>
     <string name="label_address">Офис</string>
     <string name="label_for_work_hours">Часы работы</string>
+    <string name="label_info1">Связаться с нами:</string>
+    <string name="label_info2">8 800 551 09 61</string>
+    <string name="label_info3">С контактной информацией можно ознакомиться в профиле</string>
 </resources>

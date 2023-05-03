@@ -37,9 +37,7 @@
                     android:text="Санкт-Петербург,г.Пушкин,ул. Гусарская,д.4, литер А, офис 206"
                     style="@style/MainTextProfileText.Office" />
             </LinearLayout>
-            <LinearLayout
-                style="@style/LinearLayoutLine.Office">
-            </LinearLayout>
+
 
             <!--Контактный номер-->
             <LinearLayout
@@ -52,9 +50,6 @@
                     android:text="8 800 551 09 61"
                     style="@style/MainTextProfileText.Office" />
             </LinearLayout>
-            <LinearLayout
-                style="@style/LinearLayoutLine.Office">
-            </LinearLayout>
 
             <!--Почта-->
             <LinearLayout
@@ -66,9 +61,6 @@
                     android:id="@+id/emailOffice"
                     android:text="samara@tst-ur.ru"
                     style="@style/MainTextProfileText.Office" />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/LinearLayoutLine.Office">
             </LinearLayout>
 
             <!--График работы-->

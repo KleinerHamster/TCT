@@ -7,13 +7,10 @@
     android:orientation="vertical"
     tools:context=".customer.catalog.MainCatalogFragment">
 
-    <TextView
-        style="@style/CatalogTextTitle"
-        android:textColor="@color/text_color"
-        android:text="@string/catalog_label" />
 
     <!-- список с категориями -->
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="20dp"
         android:id="@+id/main_category_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
