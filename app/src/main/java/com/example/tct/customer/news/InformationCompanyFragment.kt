@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.tct.R
 import com.google.firebase.firestore.*
-import com.squareup.picasso.Picasso
 
 class InformationCompanyFragment: Fragment() {
     private lateinit var viewOfLayout: View

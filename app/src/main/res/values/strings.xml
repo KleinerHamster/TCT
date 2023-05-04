@@ -73,4 +73,6 @@
     <string name="label_info2">8 800 551 09 61</string>
     <string name="label_info3">С контактной информацией можно ознакомиться в профиле.</string>
     <string name="title_add_alert_d">Добавление в корзину</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

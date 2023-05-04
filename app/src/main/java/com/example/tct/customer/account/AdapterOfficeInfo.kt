@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
-import com.example.tct.customer.catalog.AdapterMainCategory
-import com.example.tct.model.MainCategory
 import com.example.tct.model.OfficeInfo
 import java.util.ArrayList
 

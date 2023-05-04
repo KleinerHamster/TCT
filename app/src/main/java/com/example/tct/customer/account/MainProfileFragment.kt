@@ -37,7 +37,7 @@ class MainProfileFragment : Fragment() {
         //кнопка выхода из аккаунта
         val singOut = viewOfLayout.findViewById<TextView>(R.id.singOut)
         singOut.setOnClickListener {
-            editor!!.clear()
+            editor!!.putString("LOGIN", "false")
             editor!!.commit()
             loadFragment(SingInCustomerFragment())
         }

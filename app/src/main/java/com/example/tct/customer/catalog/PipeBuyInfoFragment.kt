@@ -1,18 +1,25 @@
 package com.example.tct.customer.catalog
 
 import android.content.ContentValues
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tct.R
-import com.google.firebase.firestore.*
+import com.example.tct.model.CartModel
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
+import com.nex3z.notificationbadge.NotificationBadge
 
 private const val ARG_PARAM1 = "mainCategory"
 private const val ARG_PARAM2 = "docMain"
@@ -27,9 +34,12 @@ class PipeBuyInfoFragment : Fragment() {
     private var docMain: String? = null
     private var docIdPipe: String? = null
     private var namePipe: String? = null
+    var sharedPreferences: SharedPreferences? = null
+    var editor: SharedPreferences.Editor? = null
 
 
     private lateinit var db: FirebaseFirestore
+    private var model: CartModel? = null
 
     //параметры view, которые будем менять -
     //инициализировать в конструкторе
@@ -254,7 +264,21 @@ class PipeBuyInfoFragment : Fragment() {
                 )
             }
         }
+        sharedPreferences = requireActivity().getSharedPreferences("user data", Context.MODE_PRIVATE)
+        editor = sharedPreferences!!.edit()
+        val gson = Gson()
 
+        model = ViewModelProvider(requireActivity())[CartModel::class.java]
+        val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+        val button_buy = viewOfLayout.findViewById<TextView>(R.id.button_buy)
+        button_buy.setOnClickListener {
+            itemCart.add(namePipe.toString())
+            model!!.setData(itemCart)
+            val json: String = gson.toJson(itemCart)
+            editor!!.putString("order", json)
+            //editor!!.clear()
+            editor!!.commit()
+        }
         return viewOfLayout
     }
 

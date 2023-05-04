@@ -9,9 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tct.R
-import com.example.tct.model.SubCategory
 import com.example.tct.model.SubSubCategory
-import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
 class AdapterSubSubCategory(private val subSubCategoryList: ArrayList<SubSubCategory>): RecyclerView.Adapter<AdapterSubSubCategory.MyViewHolder>()  {

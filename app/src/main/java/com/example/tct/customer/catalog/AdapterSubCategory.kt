@@ -8,10 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tct.R
-import com.example.tct.model.MainCategory
-import com.example.tct.model.News
 import com.example.tct.model.SubCategory
-import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
 class AdapterSubCategory(private val subCategoryList: ArrayList<SubCategory>): RecyclerView.Adapter<AdapterSubCategory.MyViewHolder>() {

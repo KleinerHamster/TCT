@@ -34,6 +34,7 @@
                     android:text="@string/label_address"/>
                 <TextView
                     android:id="@+id/addressOffice"
+                    android:layout_marginEnd="5dp"
                     android:text="Санкт-Петербург,г.Пушкин,ул. Гусарская,д.4, литер А, офис 206"
                     style="@style/MainTextProfileText.Office" />
             </LinearLayout>
