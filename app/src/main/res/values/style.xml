@@ -435,5 +435,14 @@
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">10dp</item>
     </style>
+
+    <!--стиль для TextView для элемента главной категории  -->
+    <style name="FontForCart" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
 </resources>
 

@@ -2,6 +2,8 @@ package com.example.tct.customer.catalog
 
 import android.app.AlertDialog
 import android.content.ContentValues
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
@@ -11,12 +13,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tct.R
+import com.example.tct.model.CartModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
 import java.util.regex.Pattern
 
 
@@ -34,6 +39,9 @@ class PipeBuyInfo1Fragment : Fragment() {
     private var docIdPipe: String? = null
     private var namePipe: String? = null
     private lateinit var db: FirebaseFirestore
+    var sharedPreferences: SharedPreferences? = null
+    var editor: SharedPreferences.Editor? = null
+    private var model: CartModel? = null
 
     //параметры view, которые будем менять -
     //инициализировать в конструкторе
@@ -679,7 +687,7 @@ class PipeBuyInfo1Fragment : Fragment() {
         val resetBth = view.findViewById<TextView>(R.id.reset_btn)
         val title = view.findViewById<TextView>(R.id.nameObPipe)
         title.text = namePipe
-        //val email_reset_edit = view.findViewById<TextInputEditText>(R.id.email_reset_edit)
+        var branchSelected:String = branch[0]
         //инцилизируем выпадающий список
         val spinner = view.findViewById<Spinner>(R.id.spinner_type)
         //устанавливаем адаптер с данными и разметкой для выпадающего списка
@@ -688,7 +696,7 @@ class PipeBuyInfo1Fragment : Fragment() {
         spinner.adapter = adapter
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                //branchSelected= branch[position]
+                branchSelected= branch[position]
             }
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
@@ -699,9 +707,32 @@ class PipeBuyInfo1Fragment : Fragment() {
         closeBth.setOnClickListener {
             alertDialog.dismiss()
         }
-        //кнопка для подтверждения сбора
+        //инцицилизируем sharedPreferences и viewModel для получения и сохранения данных
+        sharedPreferences = requireActivity().getSharedPreferences("user data", Context.MODE_PRIVATE)
+        editor = sharedPreferences!!.edit()
+        val gson = Gson()
+        model = ViewModelProvider(requireActivity())[CartModel::class.java]
+        val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+        var flag =false
+        //кнопка для покупки
         resetBth.setOnClickListener {
-
+            if(branchSelected!=branch[0]) {
+                //проверяем наличие в корзине
+                for (i in itemCart) {
+                    if (i == "Труба $branchSelected")
+                        flag = true
+                }
+                //если нет, то добавляем товар, иначе сообщение
+                if (!flag) {
+                    itemCart.add("Труба $branchSelected")
+                    model!!.setData(itemCart)
+                    val json: String = gson.toJson(itemCart)
+                    editor!!.putString("order", json)
+                    editor!!.commit()
+                } else
+                    Toast.makeText(requireActivity(), resources.getString(R.string.msg_exist_goods), Toast.LENGTH_LONG).show()
+            } else
+                Toast.makeText(requireActivity(), resources.getString(R.string.msg_not_chose), Toast.LENGTH_LONG).show()
         }
         if(alertDialog.window!=null){
             alertDialog.window!!.setBackgroundDrawable(ColorDrawable(0))

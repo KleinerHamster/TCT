@@ -33,11 +33,18 @@ class CatalogCustomerFragment : Fragment() {
         }
 
         model = ViewModelProvider(requireActivity())[CartModel::class.java]
-        val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
         val badge= viewOfLayout.findViewById<NotificationBadge>(R.id.badge)
+
         //через паттерн observe подписываемся на изменения
         model!!.cartDataList.observe(requireActivity(), Observer {
-            badge.setNumber(itemCart.size)
+            val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+            if (itemCart.size>0) {
+                badge.visibility=View.VISIBLE
+                badge.setNumber(itemCart.size)
+            }
+            else{
+                badge.visibility=View.GONE
+            }
         })
 
 

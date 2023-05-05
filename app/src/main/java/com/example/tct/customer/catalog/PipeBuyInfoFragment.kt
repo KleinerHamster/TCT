@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -270,14 +271,25 @@ class PipeBuyInfoFragment : Fragment() {
 
         model = ViewModelProvider(requireActivity())[CartModel::class.java]
         val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+        var flag:Boolean=false
         val button_buy = viewOfLayout.findViewById<TextView>(R.id.button_buy)
         button_buy.setOnClickListener {
-            itemCart.add(namePipe.toString())
-            model!!.setData(itemCart)
-            val json: String = gson.toJson(itemCart)
-            editor!!.putString("order", json)
-            //editor!!.clear()
-            editor!!.commit()
+            //проверяем наличие в корзине
+            for (i in itemCart){
+                if(i == namePipe.toString())
+                    flag=true
+            }
+            //если нет, то добавляем товар, иначе сообщение
+            if(!flag) {
+                itemCart.add(namePipe.toString())
+                model!!.setData(itemCart)
+                val json: String = gson.toJson(itemCart)
+                //editor!!.putString("order", json)
+                editor!!.clear()
+                editor!!.commit()
+            }
+            else
+                Toast.makeText(requireActivity(), resources.getString(R.string.msg_exist_goods), Toast.LENGTH_LONG).show()
         }
         return viewOfLayout
     }

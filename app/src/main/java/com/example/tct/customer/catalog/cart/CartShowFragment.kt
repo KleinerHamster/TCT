@@ -5,12 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
 import com.example.tct.customer.account.AdapterOfficeInfo
+import com.example.tct.customer.catalog.CatalogCustomerFragment
+import com.example.tct.customer.catalog.MainCatalogFragment
 import com.example.tct.model.CartModel
 import com.google.gson.Gson
 import java.util.ArrayList
@@ -40,6 +43,19 @@ class CartShowFragment : Fragment() {
         val news: List<String?> = model!!.get().value!!
         myAdapter= AdapterCart(news as ArrayList<String>)
         recyclerView.adapter = myAdapter
+
+        //кнопка возвращения к каталогу
+        val backToMainCategory = viewOfLayout.findViewById<ImageView>(R.id.backToMainCategory)
+        backToMainCategory.setOnClickListener {
+            loadFragment(CatalogCustomerFragment())
+        }
         return viewOfLayout
+    }
+
+    //метод для загрузки фрагмента
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.fl_wrapper_basket,fragment)
+        transaction?.commit()
     }
 }

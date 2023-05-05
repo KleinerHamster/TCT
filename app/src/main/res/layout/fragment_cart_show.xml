@@ -3,9 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
     tools:context=".customer.catalog.cart.CartShowFragment">
+    <!--Кнопка для возвращения к главной категории-->
+    <ImageView
+        android:id="@+id/backToMainCategory"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="start"
+        app:srcCompat="@drawable/back_button_news" />
+
+    <TextView
+        style="@style/FontForCart"
+        android:text="@string/label_cart" />
+
+    <EditText
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="10"
+        android:minLines="5"
+        android:layout_margin="10dp"
+        android:gravity="top|left"
+        android:background="@drawable/edittext_bg"
+        android:maxLines="10"
+        android:textSize="16sp"
+        android:hint="@string/hint_for_comment"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/label1"
+        style="@style/FontForCart"
+        android:text="@string/label_cart1" />
 
     <!-- список с актуальными новостями -->
     <androidx.recyclerview.widget.RecyclerView

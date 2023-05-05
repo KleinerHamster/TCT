@@ -1,5 +1,7 @@
 package com.example.tct.customer.catalog
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,12 +11,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
+import com.example.tct.model.CartModel
 import com.example.tct.model.SubCategory
 import com.example.tct.model.SubSubCategory
 import com.google.firebase.firestore.*
+import com.google.gson.Gson
 
 private const val ARG_PARAM1 = "subCategory"
 private const val ARG_PARAM2 = "docMain"
@@ -33,6 +38,10 @@ class SubSubCatalogFragment : Fragment() {
     private lateinit var subSubCategoryArrayList: ArrayList<SubSubCategory>
     private lateinit var myAdapter: AdapterSubSubCategory
     private lateinit var db: FirebaseFirestore
+
+    var sharedPreferences: SharedPreferences? = null
+    var editor: SharedPreferences.Editor? = null
+    private var model: CartModel? = null
 
     //параметры view, которые будем менять -
     //инициализировать в конструкторе
@@ -62,6 +71,13 @@ class SubSubCatalogFragment : Fragment() {
             loadFragment(SubCatalogFragment.newInstance(mainCategory.toString(), docMain.toString()))
         }
 
+        //инцицилизируем sharedPreferences и viewModel для получения и сохранения данных
+        sharedPreferences = requireActivity().getSharedPreferences("user data", Context.MODE_PRIVATE)
+        editor = sharedPreferences!!.edit()
+        val gson = Gson()
+        model = ViewModelProvider(requireActivity())[CartModel::class.java]
+        val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+        var flag:Boolean=false
         //иницилизируем RecyclerView
         recyclerView = viewOfLayout.findViewById(R.id.sub_sub_category_recyclerView)
         recyclerView.layoutManager = GridLayoutManager(viewOfLayout.context, 2)
@@ -72,11 +88,20 @@ class SubSubCatalogFragment : Fragment() {
         //устанавливаем действие нажатия на кнопку в списке новостей
         myAdapter.setOnClickListener(object: AdapterSubSubCategory.onItemClickListener{
             override fun buyItemClick(position: Int) {
-                Toast.makeText(
-                    requireActivity(),
-                    "купить "+subSubCategoryArrayList[position].Title.toString(),
-                    Toast.LENGTH_LONG
-                ).show()
+                //проверяем наличие в корзине
+                for (i in itemCart){
+                    if(i == subSubCategoryArrayList[position].FullTitle.toString())
+                        flag=true
+                }
+                //если нет, то добавляем товар, иначе сообщение
+                if(!flag) {
+                    itemCart.add(subSubCategoryArrayList[position].FullTitle.toString())
+                    model!!.setData(itemCart)
+                    val json: String = gson.toJson(itemCart)
+                    editor!!.putString("order", json)
+                    editor!!.commit()
+                } else
+                    Toast.makeText(requireActivity(), resources.getString(R.string.msg_exist_goods), Toast.LENGTH_LONG).show()
             }
         })
         return viewOfLayout
