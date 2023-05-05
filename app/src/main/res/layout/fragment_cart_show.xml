@@ -20,7 +20,7 @@
         android:text="@string/label_cart" />
 
     <EditText
-        android:id="@+id/comment"
+        android:id="@+id/commentForApplyEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="10"
@@ -30,6 +30,8 @@
         android:background="@drawable/edittext_bg"
         android:maxLines="10"
         android:textSize="16sp"
+
+        android:textColorHint="@color/color_bottom"
         android:hint="@string/hint_for_comment"
         tools:ignore="RtlHardcoded" />
 
@@ -37,11 +39,34 @@
         android:id="@+id/label1"
         style="@style/FontForCart"
         android:text="@string/label_cart1" />
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <!-- список с актуальными новостями -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_recyclerView"
+        android:layout_marginStart="11dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="450dp"
         tools:listitem="@layout/item_cart_show"/>
+    <TextView
+        android:id="@+id/emptyCart"
+        style="@style/FontForCart"
+        android:textSize="35sp"
+        android:layout_marginStart="0dp"
+        android:textColor="@color/color_bottom"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="160dp"
+        android:text="@string/label_empty_cart" />
+   </FrameLayout>
+
+    <!--кнопка для оформления заказа-->
+    <Button
+        android:id="@+id/btnMakeApplication"
+        android:text="Оформить"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:theme="@style/MyButtonMain"
+        style="@style/MyButtonMain"/>
 </LinearLayout>

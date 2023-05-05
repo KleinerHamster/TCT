@@ -3,6 +3,7 @@ package com.example.tct.customer.catalog.cart
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
@@ -13,8 +14,12 @@ import java.util.ArrayList
 class AdapterCart(private val cartItemList: ArrayList<String>): RecyclerView.Adapter<AdapterCart.MyViewHolder>()  {
 
     //метод для создания связи ячейки и данных
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
         val cart_name: TextView = itemView.findViewById(R.id.cart_name)
+        val deleteBtn: ImageView = itemView.findViewById(R.id.deleteItemCart)
+        init {
+            deleteBtn.setOnClickListener { listener.deleteItem(adapterPosition)}
+        }
     }
     //метод создания новой ячейки
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterCart.MyViewHolder {
@@ -22,7 +27,7 @@ class AdapterCart(private val cartItemList: ArrayList<String>): RecyclerView.Ada
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_cart_show, parent, false)
 
         //возвращаем созданую ячейку
-        return AdapterCart.MyViewHolder(itemView)
+        return AdapterCart.MyViewHolder(itemView, mListener)
     }
 
     //метод для получения кол-ва эл-тов списка
@@ -38,5 +43,14 @@ class AdapterCart(private val cartItemList: ArrayList<String>): RecyclerView.Ada
         //устанавливаем эл-т на view и модели данных
         holder.cart_name.text = item
 
+    }
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener{
+        fun deleteItem(position: Int)
+    }
+
+    fun setOnClickListener(listener: onItemClickListener){
+        mListener=listener
     }
 }

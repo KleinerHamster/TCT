@@ -78,4 +78,5 @@
     <string name="label_cart">Комментарий к заявке</string>
     <string name="label_cart1">Товар:</string>
     <string name="hint_for_comment">Введите дополнительную информацию</string>
+    <string name="label_empty_cart">Отсутствует товар</string>
 </resources>

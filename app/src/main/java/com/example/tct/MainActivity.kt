@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tct.customer.MainFragmentCustomer
 import com.example.tct.model.CartModel
+import com.example.tct.model.CommentModel
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import java.lang.reflect.Type
@@ -26,6 +27,15 @@ class MainActivity : AppCompatActivity() {
             val type: Type = object: TypeToken<ArrayList<String>>() {}.type
             itemCart = gson.fromJson(json, type)
             model.setData(itemCart)
+        }
+
+        val modelForCom: CommentModel = ViewModelProvider(this)[CommentModel::class.java]
+        var com: String = modelForCom.get().value!!
+        val jsonForCom = sharedPreferences.getString("comment", null)
+        if(jsonForCom != null){
+            val commentType: Type = object: TypeToken<String>() {}.type
+            com = gson.fromJson(jsonForCom, commentType)
+            modelForCom.setData(com)
         }
     }
 
