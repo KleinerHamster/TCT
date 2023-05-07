@@ -79,4 +79,8 @@
     <string name="label_cart1">Товар:</string>
     <string name="hint_for_comment">Введите дополнительную информацию</string>
     <string name="label_empty_cart">Отсутствует товар</string>
+    <string name="btn_create_applying">Оформить</string>
+    <string name="btn_send_applying">Отправить заявку</string>
+    <string name="msg_not_auth">Пожалуйста авторизуйтесь</string>
+    <string name="msg_empty_cart">Отсутсвует товар</string>
 </resources>

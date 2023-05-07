@@ -63,10 +63,11 @@
     <!--кнопка для оформления заказа-->
     <Button
         android:id="@+id/btnMakeApplication"
-        android:text="Оформить"
+        style="@style/MyButtonMain"
         android:layout_width="300dp"
+        android:layout_height="58dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:theme="@style/MyButtonMain"
-        style="@style/MyButtonMain"/>
+        android:text="@string/btn_create_applying"
+        android:theme="@style/MyButtonMain" />
 </LinearLayout>

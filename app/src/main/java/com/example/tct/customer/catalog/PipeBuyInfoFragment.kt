@@ -284,8 +284,7 @@ class PipeBuyInfoFragment : Fragment() {
                 itemCart.add(namePipe.toString())
                 model!!.setData(itemCart)
                 val json: String = gson.toJson(itemCart)
-                //editor!!.putString("order", json)
-                editor!!.clear()
+                editor!!.putString("order", json)
                 editor!!.commit()
             }
             else

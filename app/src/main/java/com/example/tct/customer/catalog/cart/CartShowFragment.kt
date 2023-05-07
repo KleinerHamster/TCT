@@ -9,9 +9,11 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -25,6 +27,7 @@ import com.example.tct.customer.catalog.CatalogCustomerFragment
 import com.example.tct.customer.catalog.MainCatalogFragment
 import com.example.tct.model.CartModel
 import com.example.tct.model.CommentModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import org.w3c.dom.Text
 import java.util.ArrayList
@@ -101,6 +104,25 @@ class CartShowFragment : Fragment() {
             saveComment(commentForApplyEditText, gson)
             loadFragment(CatalogCustomerFragment())
         }
+
+        //кнопка для просмотра и подтверждения заявки
+        val btnMakeApplication = viewOfLayout.findViewById<Button>(R.id.btnMakeApplication)
+        btnMakeApplication.setOnClickListener {
+            saveComment(commentForApplyEditText, gson)
+            val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+            if(itemCart.size<=0){
+                Toast.makeText(requireActivity(), resources.getString(R.string.msg_empty_cart), Toast.LENGTH_LONG).show()
+            }else if (sharedPreferences!!.getString("LOGIN", null).equals("true")) {
+                val bottomSheetDialog = ApplyingBottomSheetFragment()
+                bottomSheetDialog.show(
+                    requireActivity().supportFragmentManager,
+                    bottomSheetDialog.tag
+                )
+            }else{
+                Toast.makeText(requireActivity(), resources.getString(R.string.msg_not_auth), Toast.LENGTH_LONG).show()
+            }
+        }
+
         return viewOfLayout
     }
 
