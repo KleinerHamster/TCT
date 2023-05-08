@@ -17,12 +17,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tct.R
 import com.example.tct.model.CartModel
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
-import java.util.regex.Pattern
 
 
 private const val ARG_PARAM1 = "mainCategory"

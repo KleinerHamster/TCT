@@ -83,4 +83,7 @@
     <string name="btn_send_applying">Отправить заявку</string>
     <string name="msg_not_auth">Пожалуйста авторизуйтесь</string>
     <string name="msg_empty_cart">Отсутсвует товар</string>
+    <string name="dialog_text_create_order">Сообщение</string>
+    <string name="btn_dialog_create">Хорошо</string>
+    <string name="dialog_text_create_order1">Заказ создан, скоро с Вами свяжется менеджер</string>
 </resources>

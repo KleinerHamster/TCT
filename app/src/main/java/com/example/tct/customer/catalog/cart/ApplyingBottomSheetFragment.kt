@@ -1,21 +1,38 @@
 package com.example.tct.customer.catalog.cart
 
-import android.app.Activity
+import android.app.AlertDialog
+import android.content.ContentValues
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Build
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.tct.R
+import com.example.tct.customer.catalog.CatalogCustomerFragment
+import com.example.tct.model.CartModel
+import com.example.tct.model.CommentModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ApplyingBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var viewOfLayout: View
     var sharedPreferences: SharedPreferences? = null
     var editor: SharedPreferences.Editor? = null
+    private var modelCom: CommentModel? = null
+    private var model: CartModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +42,7 @@ class ApplyingBottomSheetFragment : BottomSheetDialogFragment() {
         //иницилизируем данные
         sharedPreferences = requireActivity().getSharedPreferences("user data", Context.MODE_PRIVATE)
         editor = sharedPreferences!!.edit()
-
+        //устанавливаем данные поль-ля перед отправкой
         val nameUser = viewOfLayout.findViewById<TextView>(R.id.nameUser)
         nameUser.text = sharedPreferences!!.getString("name", "true")
         val phoneUser = viewOfLayout.findViewById<TextView>(R.id.phoneUser)
@@ -33,9 +50,73 @@ class ApplyingBottomSheetFragment : BottomSheetDialogFragment() {
         val emailUser = viewOfLayout.findViewById<TextView>(R.id.emailUser)
         emailUser.text = sharedPreferences!!.getString("email", "true")
 
+        //получаем данные из ViewModel
+        modelCom = ViewModelProvider(requireActivity())[CommentModel::class.java]
+        val commentFromModel = modelCom!!.get().value!!
+        model = ViewModelProvider(requireActivity())[CartModel::class.java]
+        val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+        //кнопка для оформления заказа
+        val btnSendEmail = viewOfLayout.findViewById<Button>(R.id.btnSendEmail)
+        btnSendEmail.setOnClickListener {
+            sendApplying(sharedPreferences!!.getString("userId", "true").toString(), commentFromModel, itemCart)
+        }
 
 
         //sharedPreferences!!.getString("userId", "false").toString()
         return viewOfLayout
+    }
+
+    //метод для записи созданного заказа в Firestore
+    private fun sendApplying(userID:String, comment:String, itemCart:ArrayList<String>){
+        val db = Firebase.firestore
+        val docData = hashMapOf(
+            "DateOrder" to Timestamp(Calendar.getInstance().time),
+            "Comment" to comment,
+            "Goods" to itemCart
+        )
+
+        //collection("users").document(userId!!)
+        db.collection("users").document(userID).collection("orders")
+            .add(docData).addOnSuccessListener {
+                Log.d(ContentValues.TAG, "DocumentSnapshot successfully written!")
+                showDialog()
+            }
+            .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Error writing document", e)  }
+    }
+
+    //метод вызова диалогового окна для возвращения в каталок
+    fun showDialog(){
+        //инцилизурем созданное окно для возвращения в каталок
+        val dialogConstraintLayout = requireActivity().findViewById<ConstraintLayout>(R.id.dialog_Constraint_Layout_1)
+        val view = LayoutInflater.from(requireContext()).inflate(R.layout.create_order_dialog, dialogConstraintLayout)
+        val btnGood = view.findViewById<TextView>(R.id.btnGood)
+        val builder = AlertDialog.Builder(requireActivity())
+        builder.setView(view)
+        val alertDialog = builder.create()
+        //кнопка закрыть окно
+        btnGood.setOnClickListener {
+            val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+            itemCart.clear()
+            modelCom!!.setData("")
+            model!!.setData(itemCart)
+            editor!!.remove("comment")
+            editor!!.remove("order")
+            editor!!.commit()
+            alertDialog.dismiss()
+            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+            loadFragment(CatalogCustomerFragment())
+        }
+
+        if(alertDialog.window!=null){
+            alertDialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+        alertDialog.show()
+    }
+
+    //метод для загрузки фрагмента
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.fl_wrapper_basket,fragment)
+        transaction?.commit()
     }
 }

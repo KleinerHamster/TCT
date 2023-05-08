@@ -20,7 +20,6 @@ import com.example.tct.model.CartModel
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
-import com.nex3z.notificationbadge.NotificationBadge
 
 private const val ARG_PARAM1 = "mainCategory"
 private const val ARG_PARAM2 = "docMain"

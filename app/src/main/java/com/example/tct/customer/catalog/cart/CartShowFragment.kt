@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,22 +12,16 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
-import com.example.tct.customer.account.AdapterOfficeInfo
 import com.example.tct.customer.catalog.CatalogCustomerFragment
-import com.example.tct.customer.catalog.MainCatalogFragment
 import com.example.tct.model.CartModel
 import com.example.tct.model.CommentModel
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
-import org.w3c.dom.Text
 import java.util.ArrayList
 
 
@@ -94,7 +86,7 @@ class CartShowFragment : Fragment() {
                 label1.visibility=View.INVISIBLE
                 emptyCart.visibility=View.VISIBLE
                 commentForApplyEditText.setText("")
-                saveComment(commentForApplyEditText, gson)
+                saveComment( commentForApplyEditText, gson)
             }
         })
 
@@ -114,10 +106,7 @@ class CartShowFragment : Fragment() {
                 Toast.makeText(requireActivity(), resources.getString(R.string.msg_empty_cart), Toast.LENGTH_LONG).show()
             }else if (sharedPreferences!!.getString("LOGIN", null).equals("true")) {
                 val bottomSheetDialog = ApplyingBottomSheetFragment()
-                bottomSheetDialog.show(
-                    requireActivity().supportFragmentManager,
-                    bottomSheetDialog.tag
-                )
+                bottomSheetDialog.show(requireActivity().supportFragmentManager, bottomSheetDialog.tag)
             }else{
                 Toast.makeText(requireActivity(), resources.getString(R.string.msg_not_auth), Toast.LENGTH_LONG).show()
             }

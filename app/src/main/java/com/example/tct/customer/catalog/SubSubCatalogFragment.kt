@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
 import com.example.tct.model.CartModel
-import com.example.tct.model.SubCategory
 import com.example.tct.model.SubSubCategory
 import com.google.firebase.firestore.*
 import com.google.gson.Gson
