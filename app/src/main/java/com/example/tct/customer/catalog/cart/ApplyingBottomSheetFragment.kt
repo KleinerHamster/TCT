@@ -74,8 +74,6 @@ class ApplyingBottomSheetFragment : BottomSheetDialogFragment() {
             "Comment" to comment,
             "Goods" to itemCart
         )
-
-        //collection("users").document(userId!!)
         db.collection("users").document(userID).collection("orders")
             .add(docData).addOnSuccessListener {
                 Log.d(ContentValues.TAG, "DocumentSnapshot successfully written!")

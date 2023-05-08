@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".customer.account.HistoryOrderFragment">
+
+    <!-- шапка страницы -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--Кнопка для возвращения к профилю-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/back_button_news"
+            android:id="@+id/backToProfile"/>
+
+        <TextView
+            android:text="@string/label_for_oreder"
+            android:layout_marginStart="75dp"
+            style="@style/ReadNews" />
+    </LinearLayout>
+    <!--Разделитель-->
+    <LinearLayout
+        style="@style/LinearLayoutLine" >
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- список с актуальными новостями -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVOder"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            tools:listitem="@layout/item_watch_order"/>
+        <TextView
+            android:id="@+id/noOrders"
+            style="@style/FontForCart"
+            android:textSize="35sp"
+            android:layout_marginStart="0dp"
+            android:textColor="@color/color_bottom"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="300dp"
+            android:text="@string/label_empty_cart" />
+    </FrameLayout>
+
+</LinearLayout>

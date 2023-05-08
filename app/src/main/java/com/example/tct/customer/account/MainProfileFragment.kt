@@ -10,8 +10,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tct.R
+import com.example.tct.model.CartModel
+import com.example.tct.model.CommentModel
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,6 +23,8 @@ class MainProfileFragment : Fragment() {
     private lateinit var viewOfLayout: View
     var sharedPreferences: SharedPreferences? = null
     var editor: SharedPreferences.Editor? = null
+    private var modelCom: CommentModel? = null
+    private var model: CartModel? = null
 
 
     override fun onCreateView(
@@ -37,7 +42,13 @@ class MainProfileFragment : Fragment() {
         //кнопка выхода из аккаунта
         val singOut = viewOfLayout.findViewById<TextView>(R.id.singOut)
         singOut.setOnClickListener {
-            editor!!.putString("LOGIN", "false")
+            modelCom = ViewModelProvider(requireActivity())[CommentModel::class.java]
+            model = ViewModelProvider(requireActivity())[CartModel::class.java]
+            val itemCart: ArrayList<String> = model!!.get().value!! as ArrayList
+            itemCart.clear()
+            modelCom!!.setData("")
+            model!!.setData(itemCart)
+            editor!!.clear()
             editor!!.commit()
             loadFragment(SingInCustomerFragment())
         }
@@ -61,6 +72,12 @@ class MainProfileFragment : Fragment() {
         phoneShow.text=phoneUser.toString()
         nameShow.text=nameUser.toString()
         branchShow.text=branchUser.toString()
+
+        //кнопка просмотра истории заказов
+        val watchHistoryOrder = viewOfLayout.findViewById<TextView>(R.id.watchHistoryOrder)
+        watchHistoryOrder.setOnClickListener {
+            loadFragment(HistoryOrderFragment())
+        }
         return viewOfLayout
     }
 

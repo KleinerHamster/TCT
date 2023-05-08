@@ -86,4 +86,6 @@
     <string name="dialog_text_create_order">Сообщение</string>
     <string name="btn_dialog_create">Хорошо</string>
     <string name="dialog_text_create_order1">Заказ создан, скоро с Вами свяжется менеджер</string>
+    <string name="label_order_from">Заявка от</string>
+    <string name="label_order_comment">Комментарий</string>
 </resources>

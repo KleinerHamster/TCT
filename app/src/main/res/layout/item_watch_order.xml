@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/background">
+
+    <androidx.cardview.widget.CardView
+        style="@style/CardViewNews">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+         <!-- шапка страницы -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!--Заголовок новости -->
+                <TextView
+                    style="@style/FontHistoryOrder"
+                    android:text="@string/label_order_from"/>
+                <!--Заголовок новости -->
+                <TextView
+                    android:id="@+id/dateOrder"
+                    style="@style/FontHistoryOrder"
+                    android:text="08.03.2023" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LinearLayoutLine" >
+            </LinearLayout>
+
+            <!-- Комментарий -->
+            <TextView
+                style="@style/ProfileText.Sub1"
+                android:text="@string/label_order_comment"/>
+            <TextView
+                android:id="@+id/commentOrder"
+                android:layout_marginEnd="5dp"
+                android:text="Санкт-Петербург,г.Пушкин,ул. Гусарская,д.4, литер А, офис 206"
+                style="@style/MainTextProfileText.Office" />
+
+            <!-- Совстав -->
+            <TextView
+                style="@style/ProfileText.Sub1"
+                android:layout_marginTop="10dp"
+                android:text="@string/label_cart1"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/goodsOrderRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                tools:listitem="@layout/item_goods_order"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

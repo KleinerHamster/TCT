@@ -6,44 +6,34 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tct.R
-import com.example.tct.model.OfficeInfo
-import java.util.ArrayList
+import com.example.tct.model.CustomerOrder
+import java.text.SimpleDateFormat
 
-class AdapterOfficeInfo(private val officeInfoList: ArrayList<OfficeInfo>): RecyclerView.Adapter<AdapterOfficeInfo.MyViewHolder>() {
-
+class GoodsAdapter(private val goodsList: ArrayList<String>):  RecyclerView.Adapter<GoodsAdapter.MyViewHolder>() {
     //метод для создания связи ячейки и данных
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val address: TextView = itemView.findViewById(R.id.addressOffice)
-        val phone: TextView = itemView.findViewById(R.id.phoneOffice)
-        val emailOffice: TextView = itemView.findViewById(R.id.emailOffice)
-        val workHours: TextView = itemView.findViewById(R.id.workHours)
-        val cityOffice: TextView = itemView.findViewById(R.id.cityOffice)
+        val goodsOrder: TextView = itemView.findViewById(R.id.goodsOrder)
     }
 
     //метод создания новой ячейки
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         //создаем inflate с кастомной разметкой
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_about_oficce, parent, false)
-
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_goods_order, parent, false)
         //возвращаем созданую ячейку
         return MyViewHolder(itemView)
     }
 
     //метод для получения кол-ва эл-тов списка
     override fun getItemCount(): Int {
-        return officeInfoList.size
+       return goodsList.size
     }
 
     //метод cвязи новой ячейки и данных
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         //получаем по номеру позиции данные
-        val category: OfficeInfo = officeInfoList[position]
+        val good: String = goodsList[position]
 
         //устанавливаем эл-т на view и модели данных
-        holder.address.text = category.Address
-        holder.phone.text = category.Phone
-        holder.emailOffice.text = category.Email
-        holder.workHours.text = category.WorkHours
-        holder.cityOffice.text = category.City
+        holder.goodsOrder.text = good
     }
 }

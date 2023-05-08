@@ -60,6 +60,7 @@
         android:layout_marginTop="35dp"
         android:text="@string/sub_label_for_oreder"/>
     <TextView
+        android:id="@+id/watchHistoryOrder"
         android:text="@string/label_for_oreder"
         style="@style/MainTextProfileText" />
 
