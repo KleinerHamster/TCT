@@ -88,4 +88,5 @@
     <string name="dialog_text_create_order1">Заказ создан, скоро с Вами свяжется менеджер</string>
     <string name="label_order_from">Заявка от</string>
     <string name="label_order_comment">Комментарий</string>
+    <string name="label_no_orders">У Вас еще не было заявок</string>
 </resources>
