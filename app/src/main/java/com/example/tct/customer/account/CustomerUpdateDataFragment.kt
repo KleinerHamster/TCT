@@ -125,7 +125,7 @@ class CustomerUpdateDataFragment : Fragment() {
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
                                             Log.d(TAG, "User email address updated.")
-                                            editor!!.putString("email", email)
+                                            editor!!.putString("email", newEmail)
                                             editor!!.commit()
                                         } else {
                                             Log.d(TAG, "get failed with ", task.exception)

@@ -140,6 +140,7 @@ class ApplyingBottomSheetFragment : BottomSheetDialogFragment() {
         transaction?.commit()
     }
 
+    //метод для загрузки соответсвующего филиала и его почты
     private fun loadMailOffice(){
         hashMapOffice["Санкт-Петербург"] = "spb@tst-ur.ru"
         hashMapOffice["Москва"] = "vika.ivashova.04@mail.ru"
