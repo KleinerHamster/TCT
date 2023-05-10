@@ -460,7 +460,7 @@
         <item name="android:textColor">@color/text_news_des_date_color</item>
     </style>
     <style name="BottomSheetTextView.Main">
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
 
